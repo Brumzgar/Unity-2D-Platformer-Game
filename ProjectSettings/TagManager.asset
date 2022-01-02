@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Hurtbox
+  - Enemy
+  - Fruit
+  - Gem
+  - MovingPlatform
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Collidable
+  - UI Above
+  - Transitions
+  - Boss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1231232465
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Middleground
+    uniqueID: 3917183363
+    locked: 0
+  - name: Foreground
+    uniqueID: 1669637883
+    locked: 0
+  - name: Enemies
+    uniqueID: 749337167
+    locked: 0
+  - name: Player
+    uniqueID: 3917893667
+    locked: 0
+  - name: UI
+    uniqueID: 3672992757
+    locked: 0

@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2290989836119763420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2290989836119763421}
+  - component: {fileID: 2290989836119763410}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2290989836119763421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290989836119763420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2290989836119763410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2290989836119763420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e17c1ba40389a643a3746c2a6b2452c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: 82fd59849f9ed504aa08f0363f9b9e9d, type: 3}
+    volume: 0.9
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerHit
+    clip: {fileID: 8300000, guid: dc1690472968d564d97506db8d108f7e, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerInvulnerable
+    clip: {fileID: 8300000, guid: 476b0c5dea024ee458c86efd36f8b770, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 6b0f2740e9d5c924d9a6376efe49baf6, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+  - name: FrogIdle
+    clip: {fileID: 8300000, guid: 801dc9515a7810547a82ac01f8b300ec, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: FrogJump
+    clip: {fileID: 8300000, guid: 1e52e331e98d5334dbb44eb32d38c70e, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: EaglePlayerSpotted
+    clip: {fileID: 8300000, guid: ce85869dd9f2aa3438d02125a79ac863, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: GemPickup
+    clip: {fileID: 8300000, guid: ea5dabb624755ab46845ec75c03982c5, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - name: FruitPickup
+    clip: {fileID: 8300000, guid: 80f83501d3ccdc64bae1474a658a5743, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: MenuConfirm
+    clip: {fileID: 8300000, guid: aafa395884dd62a499b9463b604cb67b, type: 3}
+    volume: 0.2
+    pitch: 1
+    source: {fileID: 0}
+  - name: MenuMove
+    clip: {fileID: 8300000, guid: 59a8c645f188fb0438d9cca0cfa4026f, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
+  - name: TransitionStart
+    clip: {fileID: 8300000, guid: 111a9d19cbcfc6c49be2006b44073156, type: 3}
+    volume: 0.3
+    pitch: 1
+    source: {fileID: 0}
