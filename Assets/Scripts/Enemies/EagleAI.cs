@@ -97,12 +97,16 @@ public class EagleAI : MonoBehaviour
         {
             audioSourceChase.Pause();
             audioSourcePatrol.Pause();
+            //FindObjectOfType<AudioManager>().Pause("EagleChasing");
+            //FindObjectOfType<AudioManager>().Pause("EaglePatrolling");
             FindObjectOfType<AudioManager>().Pause("EaglePlayerSpotted");
         }
         else
         {
             audioSourceChase.UnPause();
             audioSourcePatrol.UnPause();
+            //FindObjectOfType<AudioManager>().UnPause("EagleChasing");
+            //FindObjectOfType<AudioManager>().UnPause("EaglePatrolling");
             FindObjectOfType<AudioManager>().UnPause("EaglePlayerSpotted");
         }
 
@@ -110,6 +114,8 @@ public class EagleAI : MonoBehaviour
         {
             audioSourceChase.Stop();
             audioSourcePatrol.Stop();
+            //FindObjectOfType<AudioManager>().Stop("EagleChasing");
+            //FindObjectOfType<AudioManager>().Stop("EaglePatrolling");
             FindObjectOfType<AudioManager>().Stop("EaglePlayerSpotted");
         }
 
@@ -134,6 +140,7 @@ public class EagleAI : MonoBehaviour
             {
                 // Chase Sound
                 audioSourcePatrol.Stop();
+                //FindObjectOfType<AudioManager>().Stop("EaglePatrolling");
                 eaglePatrolSoundPlayed = false;
                 EagleChasingSound();
 
@@ -190,6 +197,7 @@ public class EagleAI : MonoBehaviour
             {
                 // Sound Patrol
                 audioSourceChase.Stop();
+                //FindObjectOfType<AudioManager>().Stop("EagleChasing");
                 eagleChaseSoundPlayed = false;
                 EaglePatrolSound();
 
@@ -213,9 +221,11 @@ public class EagleAI : MonoBehaviour
             if (eaglePatrolSoundPlayed == false)
             {
                 audioSourcePatrol.loop = true;
+                //FindObjectOfType<AudioManager>().Loop("EaglePatrolling");
                 if (PauseMenuScript.gameIsPaused == false && GameOverMenuScript.gameIsOver == false)
                 {
                     audioSourcePatrol.Play();
+                    //FindObjectOfType<AudioManager>().Play("EaglePatrolling");
                     eaglePatrolSoundPlayed = true;
                 }
             }
@@ -223,6 +233,7 @@ public class EagleAI : MonoBehaviour
         else if (playerScript.gameOverMenu.activeInHierarchy == false && distanceToPlayer > 12)
         {
             audioSourcePatrol.Stop();
+            //FindObjectOfType<AudioManager>().Stop("EaglePatrolling");
             eaglePatrolSoundPlayed = false;
         }
     }
@@ -234,9 +245,11 @@ public class EagleAI : MonoBehaviour
             if (eagleChaseSoundPlayed == false)
             {
                 audioSourceChase.loop = true;
+                //FindObjectOfType<AudioManager>().Loop("EagleChasing");
                 if (PauseMenuScript.gameIsPaused == false && GameOverMenuScript.gameIsOver == false)
                 {
                     audioSourceChase.Play();
+                    //FindObjectOfType<AudioManager>().Play("EagleChasing");
                     eagleChaseSoundPlayed = true;
                 }
             }

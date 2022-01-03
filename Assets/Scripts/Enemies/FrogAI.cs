@@ -7,16 +7,16 @@ public class FrogAI : MonoBehaviour
     public List<Transform> points;
     public int nextID = 0;
     int idChangeValue = 1;
-    public float speed = 2;
+    public float speed = 3;
 
     // Jumping:
-    [SerializeField] float jumpHeight = 20;
+    [SerializeField] float jumpHeight = 3;
     [SerializeField] public Rigidbody2D frogRB;
-    [SerializeField] float circleRadius;
+    [SerializeField] float circleRadius = 0.1f;
     [SerializeField] Transform groundCheckPoint;
     [SerializeField] LayerMask collidableLayer;
     [SerializeField] public bool isGrounded;
-    [SerializeField] public bool FrogIsWaitingForJump;
+    [SerializeField] public bool frogIsWaitingForJump;
     [SerializeField] public bool itIsWednesdayMyDudes;
     public float yVelocity;
 
@@ -25,14 +25,15 @@ public class FrogAI : MonoBehaviour
 
     // Sound
     public bool soundFlag;
-    //public PlayerScript playerScript;
+    public AudioSource audioSourceFrogIdle;
+    public AudioSource audioSourceFrogJump;
     public Transform player;
     public float distanceToPlayer;
 
     private void Start()
     {
         isGrounded = false;
-        FrogIsWaitingForJump = false;
+        frogIsWaitingForJump = false;
     }
 
     void FixedUpdate()
@@ -85,23 +86,27 @@ public class FrogAI : MonoBehaviour
                 {
                     if (GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false)
                     {
-                            FindObjectOfType<AudioManager>().Play("FrogIdle");
+                        audioSourceFrogIdle.Play();
                     }
                     soundFlag = true;
                     Invoke("SetSoundFlagToFalse", 4);
                 }
-                speed = 0;
-                FrogIsGrounded();
-                FrogIsWaitingForJump = true;
+                //speed = 0;
+                //FrogIsGrounded();
+                //FrogIsWaitingForJump = true;
             }
             else
             {
                 animator.SetBool("FrogIdle", true);
-                speed = 0;
-                FrogIsGrounded();
-                FrogIsWaitingForJump = true;
+                //speed = 0;
+                //FrogIsGrounded();
+                //FrogIsWaitingForJump = true;
             }
+            speed = 0;
+            FrogIsGrounded();
+            frogIsWaitingForJump = true;
         }
+
         if (isGrounded == false)
         {
             animator.SetBool("FrogIdle", false);
@@ -111,25 +116,25 @@ public class FrogAI : MonoBehaviour
         // Sound
         if (PauseMenuScript.gameIsPaused)
         {
-            FindObjectOfType<AudioManager>().Pause("FrogJump");
-            FindObjectOfType<AudioManager>().Pause("FrogIdle");
+            audioSourceFrogIdle.Pause();
+            audioSourceFrogJump.Pause();
         }
         else if (PauseMenuScript.gameIsPaused == false)
         {
-            FindObjectOfType<AudioManager>().UnPause("FrogJump");
-            FindObjectOfType<AudioManager>().UnPause("FrogIdle");
+            audioSourceFrogIdle.UnPause();
+            audioSourceFrogJump.UnPause();
         }
 
         if (animator.GetBool("Death") == true || GameOverMenuScript.gameIsOver)
         {
-            FindObjectOfType<AudioManager>().Stop("FrogJump");
-            FindObjectOfType<AudioManager>().Stop("FrogIdle");
+            audioSourceFrogIdle.Stop();
+            audioSourceFrogJump.Stop();
         }
     }
 
     public void FrogIsGrounded() 
     {
-        if (isGrounded == true && FrogIsWaitingForJump == true)
+        if (isGrounded == true && frogIsWaitingForJump == true)
         {
             Invoke("FrogIsJumping", 2);
         }
@@ -137,14 +142,14 @@ public class FrogAI : MonoBehaviour
 
     public void FrogIsJumping()
     {
-        if (isGrounded == true && FrogIsWaitingForJump == true)
+        if (isGrounded == true && frogIsWaitingForJump == true)
         {
             itIsWednesdayMyDudes = false;
             frogRB.AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-            FrogIsWaitingForJump = false;
+            frogIsWaitingForJump = false;
             // Sound
             if (GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false)
-                FindObjectOfType<AudioManager>().Play("FrogJump");
+                audioSourceFrogJump.Play();
         }
     }
 

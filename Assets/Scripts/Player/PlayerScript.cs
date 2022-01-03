@@ -17,12 +17,12 @@ public class PlayerScript : MonoBehaviour {
 
     // Jump Delay
     public float jumpPressedRemember;
-    public float jumpPressedRememberTime = 0.2f;
+    public float jumpPressedRememberTime = 0.15f;
     public bool jumpPressedFlag;
 
     // Fall Delay
     public float isGroundedRemember;
-    public float isGroundedRememberTime = 0.15f;
+    public float isGroundedRememberTime = 0.2f;
 
     // Jump Key Held
     public bool jumpKeyHeld;
@@ -52,7 +52,6 @@ public class PlayerScript : MonoBehaviour {
     // Sound
     bool playerRun;
     bool playerRunSoundPlayed;
-    public AudioSource audioSourceRun;
     bool playerInvulnerableSoundPlayed;
 
     void Start() 
@@ -76,7 +75,7 @@ public class PlayerScript : MonoBehaviour {
         healthBar.SetMaxHealth(maxHealth);
         InvokeRepeating("BlinkingSpriteRenderer", 0f, 0.20f);
 
-        // If player started level by using crouching input he will stand up
+        // If player started level by using crouching input, he will stand up
         if (Input.GetButtonUp("Crouch") == true)
         {
             crouch = false;
@@ -85,7 +84,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void Update()
     {
-        // Gems amount saved
+        // Gems amount updating
         PlayerPrefs.SetInt("gemPickedUpInfo", gemInfo);
 
         // Other
@@ -179,18 +178,18 @@ public class PlayerScript : MonoBehaviour {
                         if (playerRunSoundPlayed == false)
                         {
                             playerRunSoundPlayed = true;
-                            audioSourceRun.loop = true;
-                            audioSourceRun.Play();
+                            FindObjectOfType<AudioManager>().Loop("PlayerRun");
+                            FindObjectOfType<AudioManager>().Play("PlayerRun");
                         }
                     }
                     else
                     {
                         playerRunSoundPlayed = false;
-                        audioSourceRun.Stop();
+                        FindObjectOfType<AudioManager>().Stop("PlayerRun");
                     }
                 } else
                 {
-                    audioSourceRun.Stop();
+                    FindObjectOfType<AudioManager>().Stop("PlayerRun");
                 }
             }
 
@@ -234,7 +233,8 @@ public class PlayerScript : MonoBehaviour {
             if (isGrounded == false && damaged == false)
             {
                 animator.SetBool("JumpFallBool", true); // Blend animation turned on whenever player is not touching the ground
-            } else if (isGrounded == false && damaged == true)
+            } 
+            else if (isGrounded == false && damaged == true)
             {
                 animator.SetBool("JumpFallBool", false);
             }
@@ -262,6 +262,7 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AudioManager>().UnPause("GemPickup");
             FindObjectOfType<AudioManager>().UnPause("FruitPickup");
             FindObjectOfType<AudioManager>().UnPause("PlayerHit");
+            FindObjectOfType<AudioManager>().UnPause("PlayerRun");
             jump = false;
         } else
         {
@@ -270,6 +271,7 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AudioManager>().Pause("GemPickup");
             FindObjectOfType<AudioManager>().Pause("FruitPickup");
             FindObjectOfType<AudioManager>().Pause("PlayerHit");
+            FindObjectOfType<AudioManager>().Pause("PlayerRun");
         }
 
         if (GameOverMenuScript.gameIsOver)
@@ -278,7 +280,7 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AudioManager>().Stop("GemPickup");
             FindObjectOfType<AudioManager>().Stop("FruitPickup");
             FindObjectOfType<AudioManager>().Stop("PlayerInvulnerable");
-            audioSourceRun.Stop();
+            FindObjectOfType<AudioManager>().Stop("PlayerRun");
         }
     }
 

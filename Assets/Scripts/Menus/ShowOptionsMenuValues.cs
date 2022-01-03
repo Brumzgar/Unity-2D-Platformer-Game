@@ -16,19 +16,13 @@ public class ShowOptionsMenuValues : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
 
-        Debug.Log("MenuTutorialsFlag = " + PlayerPrefs.GetInt("MenuTutorialsFlag") + " - before"); // test
-
-        if (sceneName == "MenuScene" && PlayerPrefs.GetInt("MenuTutorialsFlag") == 0)
+        if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0) //sceneName == "MenuScene" && 
         {
             PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
             tutorialSlider.value = 1;
-
-            Debug.Log("MenuTutorialsFlag = " + PlayerPrefs.GetInt("MenuTutorialsFlag") + " - if"); // test
         }
         else
         {
-            //tutorialValueText.GetComponent<Text>().text = PlayerPrefs.GetString("showTutorials");
-
             if (PlayerPrefs.GetString("showTutorials") == "ON")
             {
                 tutorialSlider.value = 1;
@@ -37,11 +31,7 @@ public class ShowOptionsMenuValues : MonoBehaviour
             {
                 tutorialSlider.value = 0;
             }
-
-            Debug.Log("MenuTutorialsFlag = " + PlayerPrefs.GetInt("MenuTutorialsFlag") + " - else"); // test
         }
-
-        Debug.Log("MenuTutorialsFlag = " + PlayerPrefs.GetInt("MenuTutorialsFlag") + " - after"); // test
     }
 
     void FixedUpdate()
@@ -66,7 +56,5 @@ public class ShowOptionsMenuValues : MonoBehaviour
         PlayerPrefs.SetInt("MenuTutorialsFlag", 0);
         PlayerPrefs.SetFloat("musicVolume", 0);
         PlayerPrefs.SetFloat("effectsVolume", 0);
-
-        Debug.Log("MenuTutorialsFlag = " + PlayerPrefs.GetInt("MenuTutorialsFlag") + " - on quit"); // test
     }
 }

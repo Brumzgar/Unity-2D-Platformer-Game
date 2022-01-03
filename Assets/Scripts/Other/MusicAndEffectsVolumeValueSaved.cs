@@ -18,7 +18,7 @@ public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
 
 
-        if (PlayerPrefs.GetInt("MenuSoundsMusicFlag") == 0) // && sceneName == "MenuScene" 
+        if (PlayerPrefs.GetInt("MenuSoundsMusicFlag") == 0)
         {
             PlayerPrefs.SetInt("MenuSoundsMusicFlag", 1);
             if (PlayerPrefs.GetFloat("musicVolume") == 0)
@@ -42,13 +42,5 @@ public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
     {
         PlayerPrefs.SetFloat("musicVolume", musicSlider.musicSliderElementToAdjust.value);
         PlayerPrefs.SetFloat("effectsVolume", effectsSlider.musicSliderElementToAdjust.value);
-
-        //SetEffectsVolume(PlayerPrefs.GetFloat("effectsVolume") * 10);
-        //AudioListener.volume = PlayerPrefs.GetFloat("effectsVolume") / 10;
     }
-
-/*    public void SetEffectsVolume (float mixerEffectsVolume)
-    {
-        effectsAudioMixer.SetFloat("GameEffectsMixerVolume", mixerEffectsVolume);
-    }*/
 }

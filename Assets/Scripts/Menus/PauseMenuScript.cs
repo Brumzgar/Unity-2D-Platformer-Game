@@ -92,7 +92,7 @@ public class PauseMenuScript : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W)))
                 FindObjectOfType<AudioManager>().Play("MenuMove");
 
-            playerScript.audioSourceRun.Stop();
+            FindObjectOfType<AudioManager>().Stop("PlayerRun");
             gameIsPausedAndPlayerIsCrouchingCheck = true;
             Invoke("SetTimeScaleTo0AfterTime", 0.15f); // In this time window all eagle sounds are turned off before game is paused
         }
