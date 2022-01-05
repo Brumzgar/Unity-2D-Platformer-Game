@@ -63,7 +63,8 @@ public class PlayerScript : MonoBehaviour {
         if (sceneName == "GameScene")
         {
             gemInfo = 0;
-        } else
+        } 
+        else
         {
             gemInfo = PlayerPrefs.GetInt("gemPickedUpInfo");
             changingText.GetComponent<Text>().text = gemInfo.ToString();
@@ -112,7 +113,7 @@ public class PlayerScript : MonoBehaviour {
         if (currentHealth == 1)
         {
             if (sceneName != "BossScene")
-                StartCoroutine(ConstantShake(1.30f));
+                StartCoroutine(ConstantShake(1.40f));
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -150,13 +151,15 @@ public class PlayerScript : MonoBehaviour {
         {
             runSpeed = 0;
             horizontalMove = 0;
-        } else if (PauseMenuScript.gameIsPaused == false && PauseMenuScript.gameIsEnding == false) 
+        } 
+        else if (PauseMenuScript.gameIsPaused == false && PauseMenuScript.gameIsEnding == false) 
         {
             if(turnOffInputs)
             {
                 runSpeed = 0;
                 horizontalMove = 0;
-            } else 
+            } 
+            else 
             {
                 runSpeed = 35f;
                 horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
@@ -166,7 +169,7 @@ public class PlayerScript : MonoBehaviour {
                 {
                     playerRun = true;
                 } 
-                else if (horizontalMove == 0 || isGrounded == false)
+                else // if (horizontalMove == 0 || isGrounded == false)
                 {
                     playerRun = false;
                 }
@@ -298,7 +301,7 @@ public class PlayerScript : MonoBehaviour {
             damaged = true;
             if (sceneName != "BossScene") // If player is taking hit from Boss he will be always pushed away from him, no matter the player localScale.x value
             {
-                StartCoroutine(ShortShake(.25f, 2.5f));
+                StartCoroutine(ShortShake(.25f, 2.75f));
                 if (playerGameObject.transform.localScale.x < 0)
                 {
                     CharacterController2D.m_Rigidbody2D.AddForce(new Vector2(550, 550));
