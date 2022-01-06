@@ -142,7 +142,6 @@ GameObject:
   - component: {fileID: 5573320637231370592}
   - component: {fileID: 5573320637231370599}
   - component: {fileID: 5573320637231370598}
-  - component: {fileID: 5573320637231370593}
   - component: {fileID: 5573320637231370596}
   - component: {fileID: 5573320637231370597}
   - component: {fileID: 2521712611174775169}
@@ -241,40 +240,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5573320637231370593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5573320637231370595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 440993f721be315459f8709b9574448f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  nextID: 0
-  speed: 3
-  jumpHeight: 3
-  frogRB: {fileID: 5573320637231370596}
-  circleRadius: 0.1
-  groundCheckPoint: {fileID: 5573320638092590661}
-  collidableLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  isGrounded: 0
-  FrogIsWaitingForJump: 0
-  itIsWednesdayMyDudes: 0
-  yVelocity: 0
-  animator: {fileID: 5573320637231370598}
-  soundFlag: 0
-  audioSourceFrogIdle: {fileID: 0}
-  audioSourceFrogJump: {fileID: 0}
-  player: {fileID: 0}
-  distanceToPlayer: 0
 --- !u!50 &5573320637231370596
 Rigidbody2D:
   serializedVersion: 4
@@ -337,19 +302,18 @@ MonoBehaviour:
   points: []
   nextID: 0
   speed: 3
-  jumpHeight: 3
-  frogRB: {fileID: 0}
+  jumpHeight: 15
+  frogRB: {fileID: 5573320637231370596}
   circleRadius: 0.1
   groundCheckPoint: {fileID: 5573320638092590661}
   collidableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   isGrounded: 0
-  FrogIsWaitingForJump: 0
   itIsWednesdayMyDudes: 0
+  animFlag: 0
   yVelocity: 0
-  animator: {fileID: 0}
-  soundFlag: 0
+  animator: {fileID: 5573320637231370598}
   audioSourceFrogIdle: {fileID: 0}
   audioSourceFrogJump: {fileID: 0}
   player: {fileID: 0}

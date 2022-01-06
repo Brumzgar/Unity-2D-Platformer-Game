@@ -8,25 +8,21 @@ public class ChangeableSlidersViaInput : MonoBehaviour
     [SerializeField]
     public GameObject sliderButtonToHighlight;
     [SerializeField]
-    public Slider musicSliderElementToAdjust;
+    public Slider sliderToAdjust;
 
-
-
-    // Update is called once per frame
     void Update()
     {
-
-        //AudioListener.volume = musicSliderElementToAdjust.value/10;
-
         if (EventSystem.current.currentSelectedGameObject == sliderButtonToHighlight)
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-            {
-                --musicSliderElementToAdjust.value;
+            {               
+                sliderToAdjust.value = sliderToAdjust.value - 0.1f;
+                FindObjectOfType<AudioManager>().Play("MenuDecrease");
             }
             if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
             {
-                ++musicSliderElementToAdjust.value;
+                sliderToAdjust.value = sliderToAdjust.value + 0.1f;
+                FindObjectOfType<AudioManager>().Play("MenuIncrease");
             }
         }
     }

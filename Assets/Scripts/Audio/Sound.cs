@@ -4,6 +4,9 @@ using UnityEngine.Audio;
 [System.Serializable]
 public class Sound
 {
+    public enum AudioTypes { sounds, music}
+    public AudioTypes audioType;
+
     public string name;
 
     public AudioClip clip;
@@ -18,4 +21,6 @@ public class Sound
     public AudioSource source;
 
     public bool playOnAwake;
+
+    public bool loop;
 }

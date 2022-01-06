@@ -44,63 +44,157 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: PlayerJump
+  - audioType: 0
+    name: PlayerJump
     clip: {fileID: 8300000, guid: 82fd59849f9ed504aa08f0363f9b9e9d, type: 3}
-    volume: 0.9
+    volume: 0.7
     pitch: 1
     source: {fileID: 0}
-  - name: PlayerHit
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PlayerHit
     clip: {fileID: 8300000, guid: dc1690472968d564d97506db8d108f7e, type: 3}
-    volume: 0.4
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
-  - name: PlayerInvulnerable
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PlayerInvulnerable
     clip: {fileID: 8300000, guid: 476b0c5dea024ee458c86efd36f8b770, type: 3}
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
-  - name: EnemyDeath
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: EnemyDeath
     clip: {fileID: 8300000, guid: 6b0f2740e9d5c924d9a6376efe49baf6, type: 3}
     volume: 0.4
     pitch: 1
     source: {fileID: 0}
-  - name: FrogIdle
-    clip: {fileID: 8300000, guid: 801dc9515a7810547a82ac01f8b300ec, type: 3}
-    volume: 0.1
-    pitch: 1
-    source: {fileID: 0}
-  - name: FrogJump
-    clip: {fileID: 8300000, guid: 1e52e331e98d5334dbb44eb32d38c70e, type: 3}
-    volume: 0.2
-    pitch: 1
-    source: {fileID: 0}
-  - name: EaglePlayerSpotted
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: EaglePlayerSpotted
     clip: {fileID: 8300000, guid: ce85869dd9f2aa3438d02125a79ac863, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
-  - name: GemPickup
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: GemPickup
     clip: {fileID: 8300000, guid: ea5dabb624755ab46845ec75c03982c5, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
-  - name: FruitPickup
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: FruitPickup
     clip: {fileID: 8300000, guid: 80f83501d3ccdc64bae1474a658a5743, type: 3}
     volume: 0.2
     pitch: 1
     source: {fileID: 0}
-  - name: MenuConfirm
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: MenuConfirm
     clip: {fileID: 8300000, guid: aafa395884dd62a499b9463b604cb67b, type: 3}
     volume: 0.2
     pitch: 1
     source: {fileID: 0}
-  - name: MenuMove
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: MenuMove
     clip: {fileID: 8300000, guid: 59a8c645f188fb0438d9cca0cfa4026f, type: 3}
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
-  - name: TransitionStart
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: TransitionStart
     clip: {fileID: 8300000, guid: 111a9d19cbcfc6c49be2006b44073156, type: 3}
     volume: 0.3
     pitch: 1
     source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PauseMenuEnabled
+    clip: {fileID: 8300000, guid: fa7aebd88a6b23b4ba47e77fd83a7859, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PauseMenuDisabled
+    clip: {fileID: 8300000, guid: 9c677cfc8f4c8b246b8b3b6755f35ae3, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: GameOverPlayerDeath
+    clip: {fileID: 8300000, guid: 9fc76cfe76174dd4a89f024a8d85c561, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: GameOverPlayerExplosion
+    clip: {fileID: 8300000, guid: 1b729dc51096c1045b86d8941240b11c, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: GameOverCanvas
+    clip: {fileID: 8300000, guid: a4631e0ba7bb6fa4f82b29527b8a64ef, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PlayerRun
+    clip: {fileID: 8300000, guid: 8e2e1324fc7d66c4d9ab696f81b6e9b7, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: MenuDecrease
+    clip: {fileID: 8300000, guid: 4187886c560918f48a3fee479d4300a2, type: 3}
+    volume: 0.35
+    pitch: 0.8
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: MenuIncrease
+    clip: {fileID: 8300000, guid: 51fabbb7afa207d4398e1d41b458cf16, type: 3}
+    volume: 0.35
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 1
+    name: MusicMenu
+    clip: {fileID: 8300000, guid: 888a990e927d6ab45a2fe62c011b3fef, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 1
+  musicMixerGroup: {fileID: -3074706904606225443, guid: fdb8a7a5b7a122c45a53a7c1b71f684b, type: 2}
+  soundsMixerGroup: {fileID: -8075370580816064396, guid: fdb8a7a5b7a122c45a53a7c1b71f684b, type: 2}

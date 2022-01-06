@@ -5,42 +5,45 @@ using UnityEngine.Audio;
 
 public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
 {
-    //public AudioMixer effectsAudioMixer;
-
     public ChangeableSlidersViaInput musicSlider;
     public ChangeableSlidersViaInput effectsSlider;
     public Slider musicVolumeSlider;
     public Slider effectsVolumeSlider;
-    string sceneName;
+    public Canvas canvas;
 
-    void Start()
+    public void OnEnable()
     {
-        sceneName = SceneManager.GetActiveScene().name;
+        MusicAndEffectsVolumeOnStart();
+    }
 
+    public void MusicAndEffectsVolumeOnStart()
+    {
 
         if (PlayerPrefs.GetInt("MenuSoundsMusicFlag") == 0)
         {
             PlayerPrefs.SetInt("MenuSoundsMusicFlag", 1);
-            if (PlayerPrefs.GetFloat("musicVolume") == 0)
+            if (PlayerPrefs.GetFloat("musicVolume") == 0.0001)
             {
-                musicSlider.musicSliderElementToAdjust.value = 5;
+                musicSlider.sliderToAdjust.value = 0.5001f;
             }
-            if (PlayerPrefs.GetFloat("effectsVolume") == 0)
+            if (PlayerPrefs.GetFloat("effectsVolume") == 0.0001)
             {
-                effectsSlider.musicSliderElementToAdjust.value = 5;
+                effectsSlider.sliderToAdjust.value = 0.5001f;
             }
-        } else 
+        }
+        else 
         {
-            musicSlider.musicSliderElementToAdjust.value = PlayerPrefs.GetFloat("musicVolume");
-            effectsSlider.musicSliderElementToAdjust.value = PlayerPrefs.GetFloat("effectsVolume");
+            musicSlider.sliderToAdjust.value = PlayerPrefs.GetFloat("musicVolume");
+            effectsSlider.sliderToAdjust.value = PlayerPrefs.GetFloat("effectsVolume");
         }
 
-
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.sliderToAdjust.value);
+        PlayerPrefs.SetFloat("effectsVolume", effectsSlider.sliderToAdjust.value);
     }
 
     void Update()
     {
-        PlayerPrefs.SetFloat("musicVolume", musicSlider.musicSliderElementToAdjust.value);
-        PlayerPrefs.SetFloat("effectsVolume", effectsSlider.musicSliderElementToAdjust.value);
+        PlayerPrefs.SetFloat("musicVolume", musicSlider.sliderToAdjust.value);
+        PlayerPrefs.SetFloat("effectsVolume", effectsSlider.sliderToAdjust.value);
     }
 }

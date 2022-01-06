@@ -10,33 +10,30 @@ public class ShowOptionsMenuValues : MonoBehaviour
     public GameObject tutorialValueText;
     public GameObject musicValueText;
     public GameObject effectsValueText;
-    string sceneName;
 
     private void Start()
     {
-        sceneName = SceneManager.GetActiveScene().name;
-
-        if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0) //sceneName == "MenuScene" && 
+        if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0) 
         {
             PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
-            tutorialSlider.value = 1;
+            tutorialSlider.value = tutorialSlider.maxValue;
         }
         else
         {
             if (PlayerPrefs.GetString("showTutorials") == "ON")
             {
-                tutorialSlider.value = 1;
+                tutorialSlider.value = tutorialSlider.maxValue;
             }
             else
             {
-                tutorialSlider.value = 0;
+                tutorialSlider.value = tutorialSlider.minValue;
             }
         }
     }
 
     void FixedUpdate()
     {
-        if (tutorialSlider.value == 1)
+        if (tutorialSlider.value == tutorialSlider.maxValue)
         {
             PlayerPrefs.SetString("showTutorials", "ON");    
         }
@@ -46,8 +43,15 @@ public class ShowOptionsMenuValues : MonoBehaviour
         }
 
         tutorialValueText.GetComponent<Text>().text = PlayerPrefs.GetString("showTutorials");
-        musicValueText.GetComponent<Text>().text = PlayerPrefs.GetFloat("musicVolume").ToString();
-        effectsValueText.GetComponent<Text>().text = PlayerPrefs.GetFloat("effectsVolume").ToString();
+
+        float PlayerPrefsMusicVolume = PlayerPrefs.GetFloat("musicVolume");
+        float PlayerPrefsSoundsVolume = PlayerPrefs.GetFloat("effectsVolume");
+
+        PlayerPrefsMusicVolume = Mathf.Round(PlayerPrefsMusicVolume * 10);
+        PlayerPrefsSoundsVolume = Mathf.Round(PlayerPrefsSoundsVolume * 10);
+
+        musicValueText.GetComponent<Text>().text = PlayerPrefsMusicVolume.ToString(); //PlayerPrefs.GetFloat("musicVolume").ToString();
+        effectsValueText.GetComponent<Text>().text = PlayerPrefsSoundsVolume.ToString(); //PlayerPrefs.GetFloat("effectsVolume").ToString();
     }
 
     private void OnApplicationQuit()
