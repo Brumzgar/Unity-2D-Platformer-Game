@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -8,11 +9,16 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public Sound[] sounds;
     [SerializeField] public AudioMixerGroup musicMixerGroup;
     [SerializeField] public AudioMixerGroup soundsMixerGroup;
+    public ShowOptionsMenuValues showOptionsMenuValues;
+
+    public MusicAndEffectsVolumeValueSaved musicAndEffectsVolumeValueSaved;
 
     public static AudioManager Instance;
 
     void Awake()
     {
+        //musicAndEffectsVolumeValueSaved.MusicAndEffectsVolumeOnStart();
+
         Instance = this;
 
         foreach (Sound s in sounds)
@@ -72,7 +78,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = true;
     }
 
-    public void UpdateMixerVolume()
+    /*public void UpdateMixerVolume()
     {
         musicMixerGroup.audioMixer.SetFloat("MixerMusicVolume", Mathf.Log10(OptionsMenuScript.musicVolume)*20);
         soundsMixerGroup.audioMixer.SetFloat("MixerSoundsVolume", Mathf.Log10(OptionsMenuScript.soundsVolume)*20);
@@ -82,5 +88,5 @@ public class AudioManager : MonoBehaviour
     {
         musicMixerGroup.audioMixer.SetFloat("MixerMusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("musicVolume")) * 20);
         soundsMixerGroup.audioMixer.SetFloat("MixerSoundsVolume", Mathf.Log10(PlayerPrefs.GetFloat("effectsVolume")) * 20);
-    }
+    }*/
 }

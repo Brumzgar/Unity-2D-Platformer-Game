@@ -37,7 +37,8 @@ public class EnemyHP : MonoBehaviour
         if(PauseMenuScript.gameIsPaused)
         {
             FindObjectOfType<AudioManager>().Pause("EnemyDeath");
-        } else
+        } 
+        else
         {
             FindObjectOfType<AudioManager>().UnPause("EnemyDeath");
         }

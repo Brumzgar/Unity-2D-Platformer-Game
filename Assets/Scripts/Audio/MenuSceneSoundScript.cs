@@ -14,11 +14,11 @@ public class MenuSceneSoundScript : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Log("------------------Awake---------------------------");
+        /*Debug.Log("------------------Awake---------------------------");
         Debug.Log("PlayerPrefs.GetFloat(musicVolume) = " + PlayerPrefs.GetFloat("musicVolume"));
         Debug.Log("PlayerPrefs.GetFloat(effectsVolume) = " + PlayerPrefs.GetFloat("effectsVolume"));
         Debug.Log("OptionsMenuScript.musicVolume = " + OptionsMenuScript.musicVolume);
-        Debug.Log("OptionsMenuScript.soundsVolume = " + OptionsMenuScript.soundsVolume);
+        Debug.Log("OptionsMenuScript.soundsVolume = " + OptionsMenuScript.soundsVolume);*/
     }
 
     public void OnEnable()
@@ -26,16 +26,16 @@ public class MenuSceneSoundScript : MonoBehaviour
         Invoke("turnOnInputsAfterTime", 1);
         Invoke("PlayMusicAfterTime", 0.25f);
 
-        Debug.Log("------------------OnEnable---------------------------");
+        /*Debug.Log("------------------OnEnable---------------------------");
         Debug.Log("PlayerPrefs.GetFloat(musicVolume) = " + PlayerPrefs.GetFloat("musicVolume"));
         Debug.Log("PlayerPrefs.GetFloat(effectsVolume) = " + PlayerPrefs.GetFloat("effectsVolume"));
         Debug.Log("OptionsMenuScript.musicVolume = " + OptionsMenuScript.musicVolume);
-        Debug.Log("OptionsMenuScript.soundsVolume = " + OptionsMenuScript.soundsVolume);
+        Debug.Log("OptionsMenuScript.soundsVolume = " + OptionsMenuScript.soundsVolume);*/
     }
 
     public void Start()
     {
-        Debug.Log("------------------BeforeStart---------------------------");
+        /*Debug.Log("------------------BeforeStart---------------------------");
         Debug.Log("PlayerPrefs.GetFloat(musicVolume) = " + PlayerPrefs.GetFloat("musicVolume"));
         Debug.Log("PlayerPrefs.GetFloat(effectsVolume) = " + PlayerPrefs.GetFloat("effectsVolume"));
         Debug.Log("OptionsMenuScript.musicVolume = " + OptionsMenuScript.musicVolume);
@@ -45,7 +45,7 @@ public class MenuSceneSoundScript : MonoBehaviour
         Debug.Log("PlayerPrefs.GetFloat(musicVolume) = " + PlayerPrefs.GetFloat("musicVolume"));
         Debug.Log("PlayerPrefs.GetFloat(effectsVolume) = " + PlayerPrefs.GetFloat("effectsVolume"));
         Debug.Log("OptionsMenuScript.musicVolume = " + OptionsMenuScript.musicVolume);
-        Debug.Log("OptionsMenuScript.soundsVolume = " + OptionsMenuScript.soundsVolume);
+        Debug.Log("OptionsMenuScript.soundsVolume = " + OptionsMenuScript.soundsVolume);*/
     }
 
     void Update()
@@ -57,6 +57,8 @@ public class MenuSceneSoundScript : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("MenuMove");
             }
         }
+
+        //audioManager.SetMixerVolumeOnStart();
     }
 
     public void turnOnInputsAfterTime()

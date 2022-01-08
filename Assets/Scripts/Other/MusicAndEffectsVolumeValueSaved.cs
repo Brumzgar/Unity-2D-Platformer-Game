@@ -9,7 +9,6 @@ public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
     public ChangeableSlidersViaInput effectsSlider;
     public Slider musicVolumeSlider;
     public Slider effectsVolumeSlider;
-    public Canvas canvas;
 
     public void OnEnable()
     {

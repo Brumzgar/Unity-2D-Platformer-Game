@@ -7,8 +7,8 @@ public class OptionsMenuScript : MonoBehaviour
     [SerializeField]
     public GameObject gameObjectToTurnOn;
 
-    public static float musicVolume { get; private set; }
-    public static float soundsVolume { get; private set; }
+    //public static float musicVolume { get; private set; }
+    //public static float soundsVolume { get; private set; }
 
     public void Update()
     {
@@ -24,7 +24,7 @@ public class OptionsMenuScript : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("PauseMenuDisabled");
     }
 
-    public void OptionsMusicSliderValueChange(float value)
+    /*public void OptionsMusicSliderValueChange(float value)
     {
         musicVolume = value;
         AudioManager.Instance.UpdateMixerVolume();
@@ -34,5 +34,5 @@ public class OptionsMenuScript : MonoBehaviour
     {
         soundsVolume = value;
         AudioManager.Instance.UpdateMixerVolume();
-    }
+    }*/
 }

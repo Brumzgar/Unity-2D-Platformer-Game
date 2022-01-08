@@ -10,9 +10,26 @@ public class ShowOptionsMenuValues : MonoBehaviour
     public GameObject tutorialValueText;
     public GameObject musicValueText;
     public GameObject effectsValueText;
+    public GameObject gamePausedMenuCanvas;
+    string sceneName;
+
+    private void OnEnable()
+    {
+        if (sceneName == "GameScene")
+        {
+            StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
+        }
+    }
 
     private void Start()
     {
+        sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "GameScene")
+        {
+            StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
+        }
+
         if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0) 
         {
             PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
@@ -28,6 +45,33 @@ public class ShowOptionsMenuValues : MonoBehaviour
             {
                 tutorialSlider.value = tutorialSlider.minValue;
             }
+        }
+    }
+    IEnumerator ShowOptionsMenuValuesOnPausedGame()
+    {
+        while (true)
+        {
+            if (tutorialSlider.value == tutorialSlider.maxValue)
+            {
+                PlayerPrefs.SetString("showTutorials", "ON");
+            }
+            else
+            {
+                PlayerPrefs.SetString("showTutorials", "OFF");
+            }
+
+            tutorialValueText.GetComponent<Text>().text = PlayerPrefs.GetString("showTutorials");
+
+            float PlayerPrefsMusicVolume = PlayerPrefs.GetFloat("musicVolume");
+            float PlayerPrefsSoundsVolume = PlayerPrefs.GetFloat("effectsVolume");
+
+            PlayerPrefsMusicVolume = Mathf.Round(PlayerPrefsMusicVolume * 10);
+            PlayerPrefsSoundsVolume = Mathf.Round(PlayerPrefsSoundsVolume * 10);
+
+            musicValueText.GetComponent<Text>().text = PlayerPrefsMusicVolume.ToString(); //PlayerPrefs.GetFloat("musicVolume").ToString();
+            effectsValueText.GetComponent<Text>().text = PlayerPrefsSoundsVolume.ToString(); //PlayerPrefs.GetFloat("effectsVolume").ToString();
+
+            yield return null;
         }
     }
 
