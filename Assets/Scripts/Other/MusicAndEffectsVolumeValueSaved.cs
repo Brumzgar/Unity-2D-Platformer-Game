@@ -1,14 +1,9 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
 {
     public ChangeableSlidersViaInput musicSlider;
     public ChangeableSlidersViaInput effectsSlider;
-    public Slider musicVolumeSlider;
-    public Slider effectsVolumeSlider;
     public AudioManager audioManager;
 
     public void OnEnable()

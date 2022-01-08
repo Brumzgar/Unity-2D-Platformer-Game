@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class ChangeableSlidersViaInput : MonoBehaviour
 {
-
     [SerializeField]
     public GameObject sliderButtonToHighlight;
     [SerializeField]

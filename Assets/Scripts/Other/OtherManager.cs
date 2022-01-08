@@ -17,22 +17,26 @@ public class OtherManager : MonoBehaviour
     public void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
+        StartCoroutine(ShowTutorialsInGame());
     }
 
-    public void FixedUpdate()
-    {       
-        if (sceneName == "GameScene")
+    IEnumerator ShowTutorialsInGame()
+    {
+        while (true)
         {
-            if (PlayerPrefs.GetString("showTutorials") == "OFF")
+            if (sceneName == "GameScene")
             {
-                tutorialsGameObject.SetActive(false);
-            } else
-            {
-                tutorialsGameObject.SetActive(true);
+                if (PlayerPrefs.GetString("showTutorials") == "OFF")
+                {
+                    tutorialsGameObject.SetActive(false);
+                }
+                else
+                {
+                    tutorialsGameObject.SetActive(true);
+                }
             }
+            yield return null;
         }
-               
     }
 
-    // do zrobienia - globalny manager zalezny od ticku boxa w ustawieniach zeby wlaczyc lub wylaczyc ca³kowicie dzwieki/muzyke
 }

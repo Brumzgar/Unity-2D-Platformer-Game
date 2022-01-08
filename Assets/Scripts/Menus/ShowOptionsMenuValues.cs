@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -18,6 +17,8 @@ public class ShowOptionsMenuValues : MonoBehaviour
         {
             StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
         }
+
+        SetPlayerPrefsShowTutorialOnEnableAndStart();
     }
 
     private void Start()
@@ -29,22 +30,7 @@ public class ShowOptionsMenuValues : MonoBehaviour
             StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
         }
 
-        if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0) 
-        {
-            PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
-            tutorialSlider.value = tutorialSlider.maxValue;
-        }
-        else
-        {
-            if (PlayerPrefs.GetString("showTutorials") == "ON")
-            {
-                tutorialSlider.value = tutorialSlider.maxValue;
-            }
-            else
-            {
-                tutorialSlider.value = tutorialSlider.minValue;
-            }
-        }
+        SetPlayerPrefsShowTutorialOnEnableAndStart();
     }
     IEnumerator ShowOptionsMenuValuesOnPausedGame()
     {
@@ -103,5 +89,25 @@ public class ShowOptionsMenuValues : MonoBehaviour
         PlayerPrefs.SetInt("MenuTutorialsFlag", 0);
         PlayerPrefs.SetFloat("musicVolume", 0);
         PlayerPrefs.SetFloat("effectsVolume", 0);
+    }
+
+    public void SetPlayerPrefsShowTutorialOnEnableAndStart()
+    {
+        if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0)
+        {
+            PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
+            tutorialSlider.value = tutorialSlider.maxValue;
+        }
+        else
+        {
+            if (PlayerPrefs.GetString("showTutorials") == "ON")
+            {
+                tutorialSlider.value = tutorialSlider.maxValue;
+            }
+            else
+            {
+                tutorialSlider.value = tutorialSlider.minValue;
+            }
+        }
     }
 }

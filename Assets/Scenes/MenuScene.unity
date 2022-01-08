@@ -717,7 +717,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.5001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6103,10 +6103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputFlag: 0
   startingScreen: {fileID: 1417333802}
-  optionsMenu: {fileID: 228867390}
-  musicAndEffectsVolumeValueSaved: {fileID: 1726939859}
-  optionsMenuScript: {fileID: 228867395}
-  audioManager: {fileID: 1691413832}
 --- !u!1 &1243445300
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,7 +6351,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 0.5001
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -7683,8 +7679,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1462326906}
   effectsSlider: {fileID: 22548308}
-  musicVolumeSlider: {fileID: 310918655}
-  effectsVolumeSlider: {fileID: 983799225}
   audioManager: {fileID: 0}
 --- !u!114 &1462326906
 MonoBehaviour:
@@ -8676,8 +8670,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 1726939858}
   effectsSlider: {fileID: 670966266}
-  musicVolumeSlider: {fileID: 1258277995}
-  effectsVolumeSlider: {fileID: 152663421}
   audioManager: {fileID: 1691413832}
 --- !u!1 &1771288352
 GameObject:

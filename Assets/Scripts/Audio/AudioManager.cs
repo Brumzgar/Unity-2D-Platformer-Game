@@ -1,7 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class AudioManager : MonoBehaviour
@@ -56,7 +55,6 @@ public class AudioManager : MonoBehaviour
     private void OnEnable()
     {
         musicAndEffectsVolumeValueSaved.MusicAndEffectsVolumeOnStart();
-        Debug.Log("AudioManager OnEnable");
         StartCoroutine(UpdateMixerVolumeOnPausedGame());
     }
 
@@ -90,18 +88,6 @@ public class AudioManager : MonoBehaviour
         if (s.source.loop == false)
             s.source.loop = true;
     }
-
-    /*public void UpdateMixerVolume()
-    {
-        musicMixerGroup.audioMixer.SetFloat("MixerMusicVolume", Mathf.Log10(OptionsMenuScript.musicVolume)*20);
-        soundsMixerGroup.audioMixer.SetFloat("MixerSoundsVolume", Mathf.Log10(OptionsMenuScript.soundsVolume)*20);
-    }
-
-    public void SetMixerVolumeOnStart()
-    {
-        musicMixerGroup.audioMixer.SetFloat("MixerMusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("musicVolume")) * 20);
-        soundsMixerGroup.audioMixer.SetFloat("MixerSoundsVolume", Mathf.Log10(PlayerPrefs.GetFloat("effectsVolume")) * 20);
-    }*/
 
     public void UpdateMixerVolume()
     {
