@@ -2545,7 +2545,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6180698, y: 1}
+    m_SensorSize: {x: 1.6311637, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7464,9 +7464,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
+      propertyPath: showOptionsMenuValues
+      value: 
+      objectReference: {fileID: 177816375}
+    - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
       propertyPath: musicAndEffectsVolumeValueSaved
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1738045285}
     - target: {fileID: 2290989836119763420, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -7517,6 +7521,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
+--- !u!114 &922747561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
+  m_PrefabInstance: {fileID: 922747560}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e17c1ba40389a643a3746c2a6b2452c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &928988832
 GameObject:
   m_ObjectHideFlags: 0
@@ -11849,6 +11864,7 @@ MonoBehaviour:
   effectsSlider: {fileID: 575382125}
   musicVolumeSlider: {fileID: 2088595711}
   effectsVolumeSlider: {fileID: 1626708053}
+  audioManager: {fileID: 922747561}
 --- !u!114 &1738045286
 MonoBehaviour:
   m_ObjectHideFlags: 0

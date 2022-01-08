@@ -10,7 +10,6 @@ public class ShowOptionsMenuValues : MonoBehaviour
     public GameObject tutorialValueText;
     public GameObject musicValueText;
     public GameObject effectsValueText;
-    public GameObject gamePausedMenuCanvas;
     string sceneName;
 
     private void OnEnable()

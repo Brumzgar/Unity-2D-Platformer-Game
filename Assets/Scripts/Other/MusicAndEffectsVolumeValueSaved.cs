@@ -9,6 +9,7 @@ public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
     public ChangeableSlidersViaInput effectsSlider;
     public Slider musicVolumeSlider;
     public Slider effectsVolumeSlider;
+    public AudioManager audioManager;
 
     public void OnEnable()
     {
@@ -38,11 +39,13 @@ public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
 
         PlayerPrefs.SetFloat("musicVolume", musicSlider.sliderToAdjust.value);
         PlayerPrefs.SetFloat("effectsVolume", effectsSlider.sliderToAdjust.value);
+        audioManager.UpdateMixerVolume();
     }
 
     void Update()
     {
         PlayerPrefs.SetFloat("musicVolume", musicSlider.sliderToAdjust.value);
         PlayerPrefs.SetFloat("effectsVolume", effectsSlider.sliderToAdjust.value);
+        audioManager.UpdateMixerVolume();
     }
 }

@@ -7685,6 +7685,7 @@ MonoBehaviour:
   effectsSlider: {fileID: 22548308}
   musicVolumeSlider: {fileID: 310918655}
   effectsVolumeSlider: {fileID: 983799225}
+  audioManager: {fileID: 0}
 --- !u!114 &1462326906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8677,6 +8678,7 @@ MonoBehaviour:
   effectsSlider: {fileID: 670966266}
   musicVolumeSlider: {fileID: 1258277995}
   effectsVolumeSlider: {fileID: 152663421}
+  audioManager: {fileID: 1691413832}
 --- !u!1 &1771288352
 GameObject:
   m_ObjectHideFlags: 0
@@ -8831,6 +8833,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
+      propertyPath: showOptionsMenuValues
+      value: 
+      objectReference: {fileID: 1083967948}
     - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
       propertyPath: musicAndEffectsVolumeValueSaved
       value: 

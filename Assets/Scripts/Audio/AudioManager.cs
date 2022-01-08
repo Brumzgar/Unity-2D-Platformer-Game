@@ -2,6 +2,7 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,7 +10,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public Sound[] sounds;
     [SerializeField] public AudioMixerGroup musicMixerGroup;
     [SerializeField] public AudioMixerGroup soundsMixerGroup;
-    public ShowOptionsMenuValues showOptionsMenuValues;
 
     public MusicAndEffectsVolumeValueSaved musicAndEffectsVolumeValueSaved;
 
@@ -17,8 +17,6 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        //musicAndEffectsVolumeValueSaved.MusicAndEffectsVolumeOnStart();
-
         Instance = this;
 
         foreach (Sound s in sounds)
@@ -45,6 +43,21 @@ public class AudioManager : MonoBehaviour
             if (s.loop)
                 s.source.loop = true;
         }
+    }
+    IEnumerator UpdateMixerVolumeOnPausedGame()
+    {
+        while (true)
+        {
+            UpdateMixerVolume();
+            yield return null;
+        }
+    }
+
+    private void OnEnable()
+    {
+        musicAndEffectsVolumeValueSaved.MusicAndEffectsVolumeOnStart();
+        Debug.Log("AudioManager OnEnable");
+        StartCoroutine(UpdateMixerVolumeOnPausedGame());
     }
 
     public void Play(string name)
@@ -89,4 +102,10 @@ public class AudioManager : MonoBehaviour
         musicMixerGroup.audioMixer.SetFloat("MixerMusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("musicVolume")) * 20);
         soundsMixerGroup.audioMixer.SetFloat("MixerSoundsVolume", Mathf.Log10(PlayerPrefs.GetFloat("effectsVolume")) * 20);
     }*/
+
+    public void UpdateMixerVolume()
+    {
+        musicMixerGroup.audioMixer.SetFloat("MixerMusicVolume", Mathf.Log10(PlayerPrefs.GetFloat("musicVolume")) * 20);
+        soundsMixerGroup.audioMixer.SetFloat("MixerSoundsVolume", Mathf.Log10(PlayerPrefs.GetFloat("effectsVolume")) * 20);
+    }
 }
