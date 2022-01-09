@@ -13,7 +13,7 @@ public class ShowOptionsMenuValues : MonoBehaviour
 
     private void OnEnable()
     {
-        if (sceneName == "GameScene")
+        if (sceneName == "GameScene" || sceneName == "BossScene")
         {
             StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
         }
@@ -25,7 +25,7 @@ public class ShowOptionsMenuValues : MonoBehaviour
     {
         sceneName = SceneManager.GetActiveScene().name;
 
-        if (sceneName == "GameScene")
+        if (sceneName == "GameScene" || sceneName == "BossScene")
         {
             StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
         }

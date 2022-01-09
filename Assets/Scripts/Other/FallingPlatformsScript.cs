@@ -41,7 +41,7 @@ public class FallingPlatformsScript : MonoBehaviour
             Invoke("DropPlatformAfterTime", 1.5f);
 
             // Destroy
-            Destroy(gameObject, 4f);
+            //Destroy(gameObject, 4f);
         }
     }
     public IEnumerator PlatformShake(float duration, float magnitude)
@@ -54,7 +54,10 @@ public class FallingPlatformsScript : MonoBehaviour
         {
             float x = Random.Range(-0.25f, 0.25f) * magnitude;
 
-            gameObject.transform.localPosition = new Vector3(originalPos.x + x, originalPos.y, originalPos.z); // * (0.5f / elapsed); // sprawdzic czy jak platforma jest bardzo daleko na osi x to czy nie glupieje
+            if (PauseMenuScript.gameIsPaused == false)
+                gameObject.transform.localPosition = new Vector3(originalPos.x + x, originalPos.y, originalPos.z); // * (0.5f / elapsed); // sprawdzic czy jak platforma jest bardzo daleko na osi x to czy nie glupieje
+            else
+                gameObject.transform.localPosition = originalPos;
 
             elapsed += Time.deltaTime;
 
@@ -72,11 +75,13 @@ public class FallingPlatformsScript : MonoBehaviour
 
         while (platformTouched == true) 
         {
-            gameObject.transform.localPosition = new Vector2(0, platformPos.y - y);
+            if (PauseMenuScript.gameIsPaused == false)
+                gameObject.transform.localPosition = new Vector2(0, platformPos.y - y);
 
             yield return null;
 
-            y = y + 0.025f;
+            if (PauseMenuScript.gameIsPaused == false)
+                y = y + 0.025f;
         }
     }
 

@@ -19,6 +19,7 @@ public class GameOverScript : MonoBehaviour
     {
         if (Input.anyKey && registerInputs == true)
         {
+            FindObjectOfType<AudioManager>().Play("MenuConfirm");
             registerInputs = false;
             transitionGameAnimator.SetTrigger("End");
             Invoke("LoadMenuScene", 2);

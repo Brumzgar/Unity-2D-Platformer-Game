@@ -34,7 +34,8 @@ public class BlinkingTextScript : MonoBehaviour
             tick = true;
             blinkingText = GetComponent<BlinkingTextScript>();
             InvokeRepeating("BlinkingText", 0f, 1f);
-        } else
+        } 
+        else
         {
             Invoke("SetTickToTrue", 1);
             blinkingText = GetComponent<BlinkingTextScript>();

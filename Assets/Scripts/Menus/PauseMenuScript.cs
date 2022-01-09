@@ -12,7 +12,6 @@ public class PauseMenuScript : MonoBehaviour
     public Animator transition;
     public GameObject gameOverScreen;
     public PlayerScript playerScript;
-    //public EagleAI eagleAI;
     bool pauseOptionsUIFlag;
     bool pauseFlag;
 
@@ -103,7 +102,6 @@ public class PauseMenuScript : MonoBehaviour
             if (pauseFlag == true)
             {
                 Invoke("SetPauseFlagToFalse", 0.25f);
-                // dodac flage ?
             }
 
             if (gameIsPaused)

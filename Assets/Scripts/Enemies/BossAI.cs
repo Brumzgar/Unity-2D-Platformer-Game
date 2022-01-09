@@ -47,6 +47,9 @@ public class BossAI : MonoBehaviour
         bossCurrentHealth = bossHealth;
         bossHealthBar.SetBossMaxHealth(bossHealth);
         originalPos = bossHealthBar.transform.localPosition;
+
+        // Sound
+        FindObjectOfType<AudioManager>().Play("BossFlying");
     }
 
     void UpdatePath()
@@ -72,11 +75,14 @@ public class BossAI : MonoBehaviour
 
     public void BossTakeDamage(int bossDamage)
     {
+        FindObjectOfType<AudioManager>().Stop("BossFlying");
+        FindObjectOfType<AudioManager>().Play("BossHit");
         bossCurrentHealth -= bossDamage;
         bossHealthBar.SetBossHealth(bossCurrentHealth);
         StartCoroutine(ShortShake(1, 5f));
         StartCoroutine(Damage());
         animator.SetTrigger("Damaged");
+        Invoke("PlayBossFlyingSoundAfterAnim", 1);
     }
 
     public IEnumerator Damage()
@@ -90,6 +96,22 @@ public class BossAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (PauseMenuScript.gameIsPaused == false)
+        {
+            FindObjectOfType<AudioManager>().UnPause("BossFlying");
+            FindObjectOfType<AudioManager>().UnPause("BossHit");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Pause("BossFlying");
+            FindObjectOfType<AudioManager>().Pause("BossHit");
+        }
+
+        if (GameOverMenuScript.gameIsOver)
+        {
+            FindObjectOfType<AudioManager>().Stop("BossFlying");
+            FindObjectOfType<AudioManager>().Stop("BossHit");
+        }
 
         if (bossCurrentHealth == 0)
         {
@@ -173,6 +195,14 @@ public class BossAI : MonoBehaviour
     {
         if (gameOverScreenCheck.activeInHierarchy == false)
             SceneManager.LoadScene("GameOverScene");
+    }
+
+    public void PlayBossFlyingSoundAfterAnim()
+    {
+        if (PauseMenuScript.gameIsPaused == false)
+        {
+            FindObjectOfType<AudioManager>().Play("BossFlying");
+        }
     }
 
 }

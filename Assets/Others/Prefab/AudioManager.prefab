@@ -47,7 +47,7 @@ MonoBehaviour:
   - audioType: 0
     name: PlayerJump
     clip: {fileID: 8300000, guid: 82fd59849f9ed504aa08f0363f9b9e9d, type: 3}
-    volume: 0.7
+    volume: 0.6
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
     loop: 0
   - audioType: 0
     name: FruitPickup
-    clip: {fileID: 8300000, guid: 80f83501d3ccdc64bae1474a658a5743, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: 98c1f30fcf21ec34ca43c1afeb4bc05f, type: 3}
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   - audioType: 0
     name: GameOverCanvas
     clip: {fileID: 8300000, guid: a4631e0ba7bb6fa4f82b29527b8a64ef, type: 3}
-    volume: 0.6
+    volume: 0.45
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -196,5 +196,62 @@ MonoBehaviour:
     source: {fileID: 0}
     playOnAwake: 0
     loop: 1
+  - audioType: 0
+    name: Congratulations
+    clip: {fileID: 8300000, guid: c58b85276bb84fb448ec11aa542eebc9, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: BossDeath
+    clip: {fileID: 8300000, guid: e30bbb31132e4ae47baa8e37660fd1c1, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: BossFlying
+    clip: {fileID: 8300000, guid: 48e52d7b6e4b37347a9589e80038968d, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 1
+  - audioType: 0
+    name: BossLevelStart
+    clip: {fileID: 8300000, guid: e483dc82ab3376e479adf37737b12952, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: BossHit
+    clip: {fileID: 8300000, guid: 3ead8eaeefc8dd74aa17f37f4bc1a9b3, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PlayerLandingCutscene
+    clip: {fileID: 8300000, guid: 3e92145b04c13a4459a41a2f8f85c416, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: BossLevelStart
+    clip: {fileID: 8300000, guid: e483dc82ab3376e479adf37737b12952, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
   musicMixerGroup: {fileID: -3074706904606225443, guid: fdb8a7a5b7a122c45a53a7c1b71f684b, type: 2}
   soundsMixerGroup: {fileID: -8075370580816064396, guid: fdb8a7a5b7a122c45a53a7c1b71f684b, type: 2}
+  musicAndEffectsVolumeValueSaved: {fileID: 0}

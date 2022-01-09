@@ -426,18 +426,27 @@ public class PlayerScript : MonoBehaviour {
     {
         Vector3 originalPos = healthBar.transform.localPosition;
 
-        float elapsed = 0.0f;
+        float elapsed;
 
-        while (elapsed < duration)
+        if (PauseMenuScript.gameIsPaused == false)
         {
-            float x = Random.Range(-1f, 1f) * magnitude;
-            float y = Random.Range(-1f, 1f) * magnitude;
+            elapsed = 0.0f;
 
-            healthBar.transform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+            while (elapsed < duration)
+            {
+                float x = Random.Range(-1f, 1f) * magnitude;
+                float y = Random.Range(-1f, 1f) * magnitude;
 
-            elapsed += Time.deltaTime;
+                healthBar.transform.localPosition = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
 
-            yield return null;
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+        }
+        else
+        {
+            elapsed = duration;
         }
 
         healthBar.transform.localPosition = originalPos;
