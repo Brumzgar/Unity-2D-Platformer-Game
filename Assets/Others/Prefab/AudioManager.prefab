@@ -196,10 +196,10 @@ MonoBehaviour:
     source: {fileID: 0}
     playOnAwake: 0
     loop: 1
-  - audioType: 0
+  - audioType: 1
     name: Congratulations
     clip: {fileID: 8300000, guid: c58b85276bb84fb448ec11aa542eebc9, type: 3}
-    volume: 0.5
+    volume: 0.45
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -215,23 +215,15 @@ MonoBehaviour:
   - audioType: 0
     name: BossFlying
     clip: {fileID: 8300000, guid: 48e52d7b6e4b37347a9589e80038968d, type: 3}
-    volume: 0.5
+    volume: 0.15
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
     loop: 1
   - audioType: 0
-    name: BossLevelStart
-    clip: {fileID: 8300000, guid: e483dc82ab3376e479adf37737b12952, type: 3}
-    volume: 0.5
-    pitch: 1
-    source: {fileID: 0}
-    playOnAwake: 0
-    loop: 0
-  - audioType: 0
     name: BossHit
     clip: {fileID: 8300000, guid: 3ead8eaeefc8dd74aa17f37f4bc1a9b3, type: 3}
-    volume: 0.7
+    volume: 0.95
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -244,10 +236,26 @@ MonoBehaviour:
     source: {fileID: 0}
     playOnAwake: 0
     loop: 0
-  - audioType: 0
+  - audioType: 1
     name: BossLevelStart
     clip: {fileID: 8300000, guid: e483dc82ab3376e479adf37737b12952, type: 3}
-    volume: 0.4
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PlatformTouched
+    clip: {fileID: 8300000, guid: 890379b83eaf7c042a823d6baf5fc7d0, type: 3}
+    volume: 0.75
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 0
+  - audioType: 0
+    name: PlatformFalling
+    clip: {fileID: 8300000, guid: d0ae64b017b1b23479269647063b092a, type: 3}
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0

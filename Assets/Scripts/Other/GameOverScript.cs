@@ -8,11 +8,13 @@ public class GameOverScript : MonoBehaviour
     public Animator transitionGameAnimator;
     public Animator playerJumping;
 
-    public void OnEnable()
+    public void Start()
     {
-        Invoke("TurnOnInputAnyKey", 5);
+        FindObjectOfType<AudioManager>().Play("BossDeath");
         registerInputs = false;
+        Invoke("PlayEnemyDeathSound", 1.1f);
         Invoke("PlayerJumping", 2.5f);
+        Invoke("TurnOnInputAnyKey", 5);
     }
 
     void Update()
@@ -40,5 +42,11 @@ public class GameOverScript : MonoBehaviour
     public void PlayerJumping()
     {
         playerJumping.SetTrigger("HappyJumping");
+        FindObjectOfType<AudioManager>().Play("Congratulations");
+    }
+
+    public void PlayEnemyDeathSound()
+    {
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ButtonToHightlighScript : MonoBehaviour
 {
@@ -8,11 +9,16 @@ public class ButtonToHightlighScript : MonoBehaviour
     [SerializeField]
     public GameObject buttonToHighlightOnCancel;
     public bool flag;
+    string sceneName;
+
+    private void Start()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+    }
 
     private void OnEnable()
     {
         flag = true;
-
     }
 
     private void OnDisable()
@@ -54,6 +60,8 @@ public class ButtonToHightlighScript : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))
         {
             EventSystem.current.SetSelectedGameObject(buttonToHighlightOnCancel);
+            if (sceneName == "MenuScene" && MainMenuScript.gameIsStarting == false)
+                FindObjectOfType<AudioManager>().Play("PauseMenuDisabled");
         }
     }
 }

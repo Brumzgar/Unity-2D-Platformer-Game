@@ -3,27 +3,45 @@ using UnityEngine;
 
 public class FallingPlatformsScript : MonoBehaviour
 {
-    //Rigidbody2D rb;
     public bool platformTouched;
     public bool bossDamaged;
     public BossAI boss;
     public Transform bossPosition;
     public Transform distanceCheckPosition;
     public float distanceToBoss;
-
+    bool platformTouchedSoundFlag;
+    bool platformFallingSoundFlag;
 
     void Start()
     {
+        platformFallingSoundFlag = false;
+        platformTouchedSoundFlag = false;
         bossDamaged = false;
         platformTouched = false;
-        //rb = GetComponent<Rigidbody2D>();
     }
 
     public void FixedUpdate()
     {
+        if (PauseMenuScript.gameIsPaused == false)
+        {
+            FindObjectOfType<AudioManager>().UnPause("PlatformFalling");
+            FindObjectOfType<AudioManager>().UnPause("PlatformTouched");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Pause("PlatformFalling");
+            FindObjectOfType<AudioManager>().Pause("PlatformTouched");
+        }
+
+        if (GameOverMenuScript.gameIsOver)
+        {
+            FindObjectOfType<AudioManager>().Stop("PlatformFalling");
+            FindObjectOfType<AudioManager>().Stop("PlatformTouched");
+        }
+
         distanceToBoss = Vector2.Distance(distanceCheckPosition.position, bossPosition.position);
 
-        if (bossDamaged == false && platformTouched == true && distanceToBoss < 3.75)
+        if (bossDamaged == false && platformTouched == true && distanceToBoss < 3.5)
         {
             boss.BossTakeDamage(1);
             bossDamaged = true;
@@ -35,7 +53,7 @@ public class FallingPlatformsScript : MonoBehaviour
         if (collision.gameObject.tag.Equals ("Player"))
         {
             // Shake
-            StartCoroutine(PlatformShake(1.5f, 0.25f));
+            StartCoroutine(PlatformShake(1.5f, 0.5f));
 
             // Fall
             Invoke("DropPlatformAfterTime", 1.5f);
@@ -50,12 +68,18 @@ public class FallingPlatformsScript : MonoBehaviour
 
         float elapsed = 0.1f;
 
+        if (platformTouchedSoundFlag == false)
+        {
+            platformTouchedSoundFlag = true;
+            FindObjectOfType<AudioManager>().Play("PlatformTouched");
+        }      
+
         while (elapsed < duration)
         {
             float x = Random.Range(-0.25f, 0.25f) * magnitude;
 
             if (PauseMenuScript.gameIsPaused == false)
-                gameObject.transform.localPosition = new Vector3(originalPos.x + x, originalPos.y, originalPos.z); // * (0.5f / elapsed); // sprawdzic czy jak platforma jest bardzo daleko na osi x to czy nie glupieje
+                gameObject.transform.localPosition = new Vector3(originalPos.x + x, originalPos.y, originalPos.z) * (0.5f / elapsed);
             else
                 gameObject.transform.localPosition = originalPos;
 
@@ -72,6 +96,12 @@ public class FallingPlatformsScript : MonoBehaviour
         float y = 0.25f;
 
         Vector2 platformPos = gameObject.transform.localPosition;
+
+        if (platformFallingSoundFlag == false)
+        {
+            platformFallingSoundFlag = true;
+            FindObjectOfType<AudioManager>().Play("PlatformFalling");
+        }
 
         while (platformTouched == true) 
         {
