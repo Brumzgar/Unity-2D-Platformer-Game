@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour {
 
     // Sound
     bool playerRun;
-    bool playerRunSoundPlayed;
+    public bool playerRunSoundPlayed;
     bool playerInvulnerableSoundPlayed;
 
     void Start() 
