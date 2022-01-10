@@ -13,10 +13,10 @@ public class ChangeScene : MonoBehaviour
         if (PlayerPrefs.GetString("showTutorials") == "ON")
         {
             SceneManager.LoadScene("BossTutorialScene");
-        } else
+        } 
+        else
         {
             SceneManager.LoadScene("BossScene");
-        }
-            
+        }          
     }
 }

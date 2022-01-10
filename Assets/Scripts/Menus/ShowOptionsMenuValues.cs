@@ -53,8 +53,8 @@ public class ShowOptionsMenuValues : MonoBehaviour
             PlayerPrefsMusicVolume = Mathf.Round(PlayerPrefsMusicVolume * 10);
             PlayerPrefsSoundsVolume = Mathf.Round(PlayerPrefsSoundsVolume * 10);
 
-            musicValueText.GetComponent<Text>().text = PlayerPrefsMusicVolume.ToString(); //PlayerPrefs.GetFloat("musicVolume").ToString();
-            effectsValueText.GetComponent<Text>().text = PlayerPrefsSoundsVolume.ToString(); //PlayerPrefs.GetFloat("effectsVolume").ToString();
+            musicValueText.GetComponent<Text>().text = PlayerPrefsMusicVolume.ToString(); 
+            effectsValueText.GetComponent<Text>().text = PlayerPrefsSoundsVolume.ToString(); 
 
             yield return null;
         }
@@ -79,16 +79,8 @@ public class ShowOptionsMenuValues : MonoBehaviour
         PlayerPrefsMusicVolume = Mathf.Round(PlayerPrefsMusicVolume * 10);
         PlayerPrefsSoundsVolume = Mathf.Round(PlayerPrefsSoundsVolume * 10);
 
-        musicValueText.GetComponent<Text>().text = PlayerPrefsMusicVolume.ToString(); //PlayerPrefs.GetFloat("musicVolume").ToString();
-        effectsValueText.GetComponent<Text>().text = PlayerPrefsSoundsVolume.ToString(); //PlayerPrefs.GetFloat("effectsVolume").ToString();
-    }
-
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetInt("MenuSoundsMusicFlag", 0);
-        PlayerPrefs.SetInt("MenuTutorialsFlag", 0);
-        PlayerPrefs.SetFloat("musicVolume", 0);
-        PlayerPrefs.SetFloat("effectsVolume", 0);
+        musicValueText.GetComponent<Text>().text = PlayerPrefsMusicVolume.ToString();
+        effectsValueText.GetComponent<Text>().text = PlayerPrefsSoundsVolume.ToString();
     }
 
     public void SetPlayerPrefsShowTutorialOnEnableAndStart()

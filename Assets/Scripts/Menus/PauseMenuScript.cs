@@ -93,7 +93,9 @@ public class PauseMenuScript : MonoBehaviour
 
             FindObjectOfType<AudioManager>().Stop("PlayerRun");
             gameIsPausedAndPlayerIsCrouchingCheck = true;
-            Invoke("SetTimeScaleTo0AfterTime", 0.15f); // In this time window all eagle sounds are turned off before game is paused
+
+            // In this time window some sounds are turned off before game is paused and time.timeScale = 0f;
+            Invoke("SetTimeScaleTo0AfterTime", 0.15f); 
         }
         else
         {

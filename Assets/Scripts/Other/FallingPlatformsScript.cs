@@ -41,7 +41,7 @@ public class FallingPlatformsScript : MonoBehaviour
 
         distanceToBoss = Vector2.Distance(distanceCheckPosition.position, bossPosition.position);
 
-        if (bossDamaged == false && platformTouched == true && distanceToBoss < 3.5)
+        if (bossDamaged == false && platformTouched == true && distanceToBoss < 4)
         {
             boss.BossTakeDamage(1);
             bossDamaged = true;
@@ -57,9 +57,6 @@ public class FallingPlatformsScript : MonoBehaviour
 
             // Fall
             Invoke("DropPlatformAfterTime", 1.5f);
-
-            // Destroy
-            //Destroy(gameObject, 4f);
         }
     }
     public IEnumerator PlatformShake(float duration, float magnitude)

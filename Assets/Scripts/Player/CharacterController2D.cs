@@ -79,9 +79,10 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Update()
 	{
+		// Player yVelocity over 20 is stopped so he wont be reaching absurd amounts of speed when being hit/jumping/killing enemies
 		if (yVelocity > 20)
 		{
-			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, 15);
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.y, 15);
 		}  
 	}
 

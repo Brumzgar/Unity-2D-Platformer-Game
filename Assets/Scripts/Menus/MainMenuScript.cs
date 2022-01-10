@@ -34,10 +34,6 @@ public class MainMenuScript : MonoBehaviour
         if (gameIsStarting == false)
         {
             FindObjectOfType<AudioManager>().Play("PauseMenuDisabled");
-            /*PlayerPrefs.SetInt("MenuSoundsMusicFlag", 0);
-            PlayerPrefs.SetInt("MenuTutorialsFlag", 0);
-            PlayerPrefs.SetFloat("musicVolume", 0);
-            PlayerPrefs.SetFloat("effectsVolume", 0);*/
             Invoke("QuitGameAfterTime", 0.25f);
         }
     }

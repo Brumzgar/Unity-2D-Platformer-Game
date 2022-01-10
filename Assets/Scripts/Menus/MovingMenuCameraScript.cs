@@ -6,7 +6,7 @@ public class MovingMenuCameraScript : MonoBehaviour
     public float cameraSpeed;
     public Transform cameraPosition;
     public bool flag;
-    public string sceneName;
+    string sceneName;
 
     private void OnEnable()
     {

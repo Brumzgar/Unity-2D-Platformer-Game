@@ -13,6 +13,7 @@ public class ButtonToHightlighScript : MonoBehaviour
 
     private void Start()
     {
+        flag = true;
         sceneName = SceneManager.GetActiveScene().name;
     }
 

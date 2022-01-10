@@ -1065,19 +1065,7 @@ MonoBehaviour:
   m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1587497260}
-        m_TargetAssemblyTypeName: OptionsMenuScript, Assembly-CSharp
-        m_MethodName: OptionsMusicSliderValueChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &417778042
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1167,19 +1155,7 @@ MonoBehaviour:
   m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1587497260}
-        m_TargetAssemblyTypeName: OptionsMenuScript, Assembly-CSharp
-        m_MethodName: OptionsSoundsSliderValueChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &485536901
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1381,7 +1357,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
       propertyPath: sounds.Array.data[3].volume
-      value: 0.55
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
       propertyPath: musicAndEffectsVolumeValueSaved

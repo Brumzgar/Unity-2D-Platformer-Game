@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -144,7 +143,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
         // Movement
-        animator.SetFloat("yVelocity", controller.yVelocity); // Float used to determine if player is jumping or falling
+        animator.SetFloat("yVelocity", controller.yVelocity); // Float used to check if player is jumping or falling
         animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         if (PauseMenuScript.gameIsEnding)
@@ -169,7 +168,7 @@ public class PlayerScript : MonoBehaviour {
                 {
                     playerRun = true;
                 } 
-                else // if (horizontalMove == 0 || isGrounded == false)
+                else
                 {
                     playerRun = false;
                 }
@@ -196,7 +195,8 @@ public class PlayerScript : MonoBehaviour {
                 }
             }
 
-            isGrounded = controller.GroundCheck(); // GroundCheck taken from controller to check if player is touching the ground
+            // GroundCheck taken from controller to check if player is touching the ground
+            isGrounded = controller.GroundCheck(); 
 
             // Jump Delay
             jumpPressedRemember -= Time.deltaTime;
@@ -235,7 +235,8 @@ public class PlayerScript : MonoBehaviour {
 
             if (isGrounded == false && damaged == false)
             {
-                animator.SetBool("JumpFallBool", true); // Blend animation turned on whenever player is not touching the ground
+                // Blend animation turned on whenever player is not touching the ground
+                animator.SetBool("JumpFallBool", true);
             } 
             else if (isGrounded == false && damaged == true)
             {
@@ -299,7 +300,9 @@ public class PlayerScript : MonoBehaviour {
             }     
             turnOffInputs = true;
             damaged = true;
-            if (sceneName != "BossScene") // If player is taking hit from Boss he will be always pushed away from him, no matter the player localScale.x value
+
+            // If player is taking hit from Boss he will be always pushed away, no matter the player localScale.x value
+            if (sceneName != "BossScene")
             {
                 StartCoroutine(ShortShake(.25f, 2.75f));
                 if (playerGameObject.transform.localScale.x < 0)

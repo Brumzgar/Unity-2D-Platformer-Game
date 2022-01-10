@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,5 +37,11 @@ public class OtherManager : MonoBehaviour
             yield return null;
         }
     }
-
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("MenuSoundsMusicFlag", 0);
+        PlayerPrefs.SetInt("MenuTutorialsFlag", 0);
+        PlayerPrefs.SetFloat("musicVolume", 0);
+        PlayerPrefs.SetFloat("effectsVolume", 0);
+    }
 }
