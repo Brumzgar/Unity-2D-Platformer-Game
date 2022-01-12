@@ -2,6 +2,7 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public Sound[] sounds;
     [SerializeField] public AudioMixerGroup musicMixerGroup;
     [SerializeField] public AudioMixerGroup soundsMixerGroup;
-
     public MusicAndEffectsVolumeValueSaved musicAndEffectsVolumeValueSaved;
-
     public static AudioManager Instance;
+    public bool pausedMenuMusicPlayed;
+    string sceneName;
 
     void Awake()
     {
@@ -43,6 +44,11 @@ public class AudioManager : MonoBehaviour
                 s.source.loop = true;
         }
     }
+
+    private void Start()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+    }
     IEnumerator UpdateMixerVolumeOnPausedGame()
     {
         while (true)
@@ -52,10 +58,33 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public IEnumerator PlayPausedGameMusicOnPausedGame()
+    {
+        while (true)
+        {
+            if (PauseMenuScript.gameIsPaused == true)
+            {
+                if (pausedMenuMusicPlayed == false)
+                {
+                    pausedMenuMusicPlayed = true;
+                    FindObjectOfType<AudioManager>().Play("GamePausedMusic");
+                }
+            }
+            else
+            {
+                if (sceneName != "GameOverScene")
+                    FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
+                pausedMenuMusicPlayed = false;
+            }
+            yield return null;
+        }
+    }
+
     private void OnEnable()
     {
         musicAndEffectsVolumeValueSaved.MusicAndEffectsVolumeOnStart();
         StartCoroutine(UpdateMixerVolumeOnPausedGame());
+        StartCoroutine(PlayPausedGameMusicOnPausedGame());
     }
 
     public void Play(string name)

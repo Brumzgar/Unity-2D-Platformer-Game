@@ -30,6 +30,7 @@ public class GameOverScript : MonoBehaviour
 
     public void TurnOnInputAnyKey()
     {
+        FindObjectOfType<AudioManager>().Play("GamePausedMusic");
         pressAnyKeyText.SetActive(true);
         registerInputs = true;
     }
