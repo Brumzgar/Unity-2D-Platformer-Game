@@ -156,10 +156,10 @@ MonoBehaviour:
     source: {fileID: 0}
     playOnAwake: 0
     loop: 0
-  - audioType: 0
+  - audioType: 1
     name: GameOverCanvas
     clip: {fileID: 8300000, guid: a4631e0ba7bb6fa4f82b29527b8a64ef, type: 3}
-    volume: 0.45
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
     name: MenuDecrease
     clip: {fileID: 8300000, guid: 4187886c560918f48a3fee479d4300a2, type: 3}
     volume: 0.35
-    pitch: 0.8
+    pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
     loop: 0
@@ -263,6 +263,14 @@ MonoBehaviour:
   - audioType: 1
     name: GamePausedMusic
     clip: {fileID: 8300000, guid: 408f6c2a2ec09c245a0b25cd9344e022, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 1
+  - audioType: 1
+    name: BossSceneMusic
+    clip: {fileID: 8300000, guid: 9557348d1ec110945855faa75680a92d, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}

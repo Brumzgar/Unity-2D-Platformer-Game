@@ -48,6 +48,9 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
+
+        if (sceneName == "BossScene")
+            FindObjectOfType<AudioManager>().Play("BossSceneMusic");
     }
     IEnumerator UpdateMixerVolumeOnPausedGame()
     {
@@ -64,7 +67,8 @@ public class AudioManager : MonoBehaviour
         {
             if (PauseMenuScript.gameIsPaused == true)
             {
-                if (pausedMenuMusicPlayed == false)
+                FindObjectOfType<AudioManager>().SetLowVolume("BossSceneMusic");
+                if (pausedMenuMusicPlayed == false && sceneName != "BossScene")
                 {
                     pausedMenuMusicPlayed = true;
                     FindObjectOfType<AudioManager>().Play("GamePausedMusic");
@@ -72,6 +76,7 @@ public class AudioManager : MonoBehaviour
             }
             else
             {
+                FindObjectOfType<AudioManager>().SetHighVolume("BossSceneMusic");
                 if (sceneName != "GameOverScene")
                     FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
                 pausedMenuMusicPlayed = false;
@@ -116,6 +121,18 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s.source.loop == false)
             s.source.loop = true;
+    }
+
+    public void SetLowVolume(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.volume = 0.25f;
+    }
+
+    public void SetHighVolume(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.volume = 0.5f;
     }
 
     public void UpdateMixerVolume()

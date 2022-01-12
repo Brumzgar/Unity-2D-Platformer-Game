@@ -10,6 +10,7 @@ public class GameOverScript : MonoBehaviour
 
     public void Start()
     {
+        FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
         FindObjectOfType<AudioManager>().Play("BossDeath");
         registerInputs = false;
         Invoke("PlayEnemyDeathSound", 1.1f);

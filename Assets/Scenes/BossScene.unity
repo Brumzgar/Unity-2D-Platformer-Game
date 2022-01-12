@@ -7831,6 +7831,10 @@ PrefabInstance:
       propertyPath: musicAndEffectsVolumeValueSaved
       value: 
       objectReference: {fileID: 1205847305}
+    - target: {fileID: 2290989836119763410, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
+      propertyPath: sounds.Array.data[28].playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2290989836119763420, guid: 0ddcd6dd18dc00141b8905c1ece1b585, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -9457,6 +9461,7 @@ MonoBehaviour:
   changingText: {fileID: 198797183}
   gemAnimator: {fileID: 1805737391}
   gemInfo: 0
+  playerRunSoundPlayed: 0
 --- !u!58 &975914769
 CircleCollider2D:
   m_ObjectHideFlags: 0
