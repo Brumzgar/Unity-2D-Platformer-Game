@@ -263,14 +263,14 @@ MonoBehaviour:
   - audioType: 1
     name: GamePausedMusic
     clip: {fileID: 8300000, guid: 408f6c2a2ec09c245a0b25cd9344e022, type: 3}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     source: {fileID: 0}
     playOnAwake: 0
     loop: 1
   - audioType: 1
     name: BossSceneMusic
-    clip: {fileID: 8300000, guid: 9557348d1ec110945855faa75680a92d, type: 3}
+    clip: {fileID: 8300000, guid: fb6dd08e104dea14f8f4881b66a7264b, type: 3}
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
