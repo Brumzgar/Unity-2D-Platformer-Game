@@ -19,11 +19,11 @@ public class MusicAndEffectsVolumeValueSaved : MonoBehaviour
             PlayerPrefs.SetInt("MenuSoundsMusicFlag", 1);
             if (PlayerPrefs.GetFloat("musicVolume") == 0.0001)
             {
-                musicSlider.sliderToAdjust.value = 0.5001f;
+                musicSlider.sliderToAdjust.value = 0.4001f;
             }
             if (PlayerPrefs.GetFloat("effectsVolume") == 0.0001)
             {
-                effectsSlider.sliderToAdjust.value = 0.5001f;
+                effectsSlider.sliderToAdjust.value = 0.6001f;
             }
         }
         else 

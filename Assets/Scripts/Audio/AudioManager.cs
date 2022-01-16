@@ -126,13 +126,13 @@ public class AudioManager : MonoBehaviour
     public void SetLowVolume(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.volume = 0.25f;
+        s.source.volume = 0.20f;
     }
 
     public void SetHighVolume(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.volume = 0.5f;
+        s.source.volume = 0.45f;
     }
 
     public void UpdateMixerVolume()

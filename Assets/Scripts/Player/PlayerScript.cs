@@ -412,7 +412,7 @@ public class PlayerScript : MonoBehaviour {
     {
         Vector3 originalPos = healthBar.transform.localPosition;
 
-        while (currentHealth == 1) 
+        while (currentHealth == 1 && PauseMenuScript.gameIsPaused == false) 
         {
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
