@@ -276,6 +276,14 @@ MonoBehaviour:
     source: {fileID: 0}
     playOnAwake: 0
     loop: 1
+  - audioType: 1
+    name: GameSceneMusic
+    clip: {fileID: 8300000, guid: ae59afec91d9a074f89297f1d7053592, type: 3}
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+    playOnAwake: 0
+    loop: 1
   musicMixerGroup: {fileID: -3074706904606225443, guid: fdb8a7a5b7a122c45a53a7c1b71f684b, type: 2}
   soundsMixerGroup: {fileID: -8075370580816064396, guid: fdb8a7a5b7a122c45a53a7c1b71f684b, type: 2}
   musicAndEffectsVolumeValueSaved: {fileID: 0}

@@ -51,7 +51,11 @@ public class AudioManager : MonoBehaviour
 
         if (sceneName == "BossScene")
             FindObjectOfType<AudioManager>().Play("BossSceneMusic");
+
+        if (sceneName == "GameScene")
+            FindObjectOfType<AudioManager>().Play("GameSceneMusic");
     }
+
     IEnumerator UpdateMixerVolumeOnPausedGame()
     {
         while (true)
@@ -72,6 +76,8 @@ public class AudioManager : MonoBehaviour
                 {
                     pausedMenuMusicPlayed = true;
                     FindObjectOfType<AudioManager>().Play("GamePausedMusic");
+                    if (sceneName == "GameScene")
+                        FindObjectOfType<AudioManager>().Pause("GameSceneMusic");
                 }
             }
             else
@@ -80,6 +86,8 @@ public class AudioManager : MonoBehaviour
                 if (sceneName != "GameOverScene")
                     FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
                 pausedMenuMusicPlayed = false;
+                if (sceneName == "GameScene")
+                    FindObjectOfType<AudioManager>().UnPause("GameSceneMusic");
             }
             yield return null;
         }

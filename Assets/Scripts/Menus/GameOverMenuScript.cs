@@ -15,6 +15,7 @@ public class GameOverMenuScript : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
         FindObjectOfType<AudioManager>().Stop("BossSceneMusic");
         FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
+        FindObjectOfType<AudioManager>().Stop("GameSceneMusic");
     }
 
     public void OnEnable()
