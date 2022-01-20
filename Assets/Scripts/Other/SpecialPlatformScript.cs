@@ -1,70 +1,66 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class FallingPlatformsScript : MonoBehaviour
+public class SpecialPlatformScript : MonoBehaviour
 {
+    public bool platformFallingSoundFlag;
+    public bool platformTouchedSoundFlag;
     public bool platformTouched;
-    public bool bossDamaged;
-    public BossAI boss;
-    public Transform bossPosition;
-    public Transform distanceCheckPosition;
-    public float distanceToBoss;
-    bool platformTouchedSoundFlag;
-    bool platformFallingSoundFlag;
+    public GameObject cameraToTurnOff;
+    public Transform playerTransform;
+    public Animator gameOverAnimations;
+    public Animator playerAnimator;
     bool flag;
+    public PlayerScript playerScript;
 
     void Start()
     {
         platformFallingSoundFlag = false;
         platformTouchedSoundFlag = false;
-        bossDamaged = false;
         platformTouched = false;
     }
 
     public void FixedUpdate()
     {
-        if (PauseMenuScript.gameIsPaused == false)
+        if (playerTransform.position.y <= -28)
         {
-            FindObjectOfType<AudioManager>().UnPause("PlatformFalling");
-            FindObjectOfType<AudioManager>().UnPause("PlatformTouched");
-        }
-        else
-        {
-            FindObjectOfType<AudioManager>().Pause("PlatformFalling");
-            FindObjectOfType<AudioManager>().Pause("PlatformTouched");
-        }
-
-        if (GameOverMenuScript.gameIsOver)
-        {
-            FindObjectOfType<AudioManager>().Stop("PlatformFalling");
-            FindObjectOfType<AudioManager>().Stop("PlatformTouched");
-        }
-
-        distanceToBoss = Vector2.Distance(distanceCheckPosition.position, bossPosition.position);
-
-        if (bossDamaged == false && platformTouched == true && distanceToBoss < 4)
-        {
-            boss.BossTakeDamage(1);
-            bossDamaged = true;
+            cameraToTurnOff.SetActive(false);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals ("Player"))
-        {
+        if (collision.gameObject.tag.Equals("Player"))
+        {    
             if (flag == false)
             {
                 // Shake
                 StartCoroutine(PlatformShake(1.5f, 0.5f));
 
                 // Fall
-                Invoke("DropPlatformAfterTime", 1.5f);
+                Invoke("DropPlatformAfterTime", 1f);
+
+                // Turned off Controls
+                PauseMenuScript.gameIsEnding = true;
+
+                // Other
+                FindObjectOfType<AudioManager>().Stop("GameSceneMusic");
+                FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
+
+                CharacterController2D.m_Rigidbody2D.AddForce(new Vector2(0, 550));
+                playerScript.animator.SetBool("Damaged", true);
+                FindObjectOfType<AudioManager>().Play("PlayerHit");             
+
+                Invoke("GameOverAnimationTrigger", 3f);
+                Invoke("TransitionToBossCutscene", 4f);
 
                 flag = true;
             }
         }
     }
+
     public IEnumerator PlatformShake(float duration, float magnitude)
     {
         Vector3 originalPos = gameObject.transform.localPosition;
@@ -75,7 +71,7 @@ public class FallingPlatformsScript : MonoBehaviour
         {
             platformTouchedSoundFlag = true;
             FindObjectOfType<AudioManager>().Play("PlatformTouched");
-        }      
+        }
 
         while (elapsed < duration)
         {
@@ -96,25 +92,25 @@ public class FallingPlatformsScript : MonoBehaviour
 
     public IEnumerator DropPlatform()
     {
-        float y = 0.25f;
+        float y = 0.01f;
 
         Vector2 platformPos = gameObject.transform.localPosition;
 
         if (platformFallingSoundFlag == false)
         {
             platformFallingSoundFlag = true;
-            FindObjectOfType<AudioManager>().Play("PlatformFalling");
+            Invoke("PlayPlatformFallingSound", 0.25f);
         }
 
-        while (platformTouched == true) 
+        while (platformTouched == true)
         {
-            if (PauseMenuScript.gameIsPaused == false)
-                gameObject.transform.localPosition = new Vector2(0, platformPos.y - y);
+            playerAnimator.SetBool("JumpFallBool", true);
+
+            gameObject.transform.localPosition = new Vector2(0, platformPos.y - y);
 
             yield return null;
 
-            if (PauseMenuScript.gameIsPaused == false)
-                y = y + 0.025f;
+            y = y + 0.15f;       
         }
     }
 
@@ -124,4 +120,18 @@ public class FallingPlatformsScript : MonoBehaviour
         StartCoroutine(DropPlatform());
     }
 
+    public void GameOverAnimationTrigger()
+    {
+        gameOverAnimations.SetTrigger("End");
+    }
+
+    public void TransitionToBossCutscene()
+    {
+        SceneManager.LoadScene("BossCutscene");
+    }
+
+    public void PlayPlatformFallingSound()
+    {
+        FindObjectOfType<AudioManager>().Play("PlatformFalling");
+    }
 }

@@ -49,7 +49,7 @@ public class FrogAI2 : MonoBehaviour
         {
             if (itIsWednesdayMyDudes)
             {
-                if (isGrounded && GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false) // && yVelocity == 0
+                if (isGrounded && GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false && PauseMenuScript.gameIsEnding == false) // && yVelocity == 0
                 {
                     animator.SetBool("FrogRibbit", true);
                     audioSourceFrogIdle.Play();
@@ -113,7 +113,7 @@ public class FrogAI2 : MonoBehaviour
             audioSourceFrogJump.UnPause();
         }
 
-        if (animator.GetBool("Death") == true || GameOverMenuScript.gameIsOver)
+        if (animator.GetBool("Death") == true || GameOverMenuScript.gameIsOver || PauseMenuScript.gameIsEnding)
         {
             audioSourceFrogIdle.Stop();
             audioSourceFrogJump.Stop();
@@ -130,7 +130,7 @@ public class FrogAI2 : MonoBehaviour
                  {
                      yield return new WaitForSeconds(1);
                      frogRB.AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
-                     if (GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false)
+                     if (GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false && PauseMenuScript.gameIsEnding == false)
                          audioSourceFrogJump.Play();
                  }
             }

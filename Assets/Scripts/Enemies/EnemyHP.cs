@@ -18,7 +18,7 @@ public class EnemyHP : MonoBehaviour
 
     void Update()
     {
-        if(GameOverMenuScript.gameIsOver)
+        if(GameOverMenuScript.gameIsOver || PauseMenuScript.gameIsEnding)
         {
             FindObjectOfType<AudioManager>().Stop("EnemyDeath");
         }

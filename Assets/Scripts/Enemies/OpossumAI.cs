@@ -20,7 +20,7 @@ public class OpossumAI : MonoBehaviour
     void FixedUpdate()
     {
         // Sound
-        if (GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false)
+        if (GameOverMenuScript.gameIsOver == false && distanceToPlayer < 10 && animator.GetBool("Death") == false && PauseMenuScript.gameIsPaused == false && PauseMenuScript.gameIsEnding == false)
         {
             if (opossSoundPlayed == false)
             {
@@ -35,7 +35,7 @@ public class OpossumAI : MonoBehaviour
             opossAudioSource.Stop();
         }
 
-        if (GameOverMenuScript.gameIsOver)
+        if (GameOverMenuScript.gameIsOver || PauseMenuScript.gameIsEnding)
             opossAudioSource.Stop();
 
         distanceToPlayer = Vector2.Distance(transform.position, player.position);

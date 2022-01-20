@@ -9,6 +9,7 @@ TagManager:
   - Fruit
   - Gem
   - MovingPlatform
+  - SpecialPlatform
   layers:
   - Default
   - TransparentFX

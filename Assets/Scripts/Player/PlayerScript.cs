@@ -65,6 +65,7 @@ public class PlayerScript : MonoBehaviour {
         } 
         else
         {
+            //PlayerPrefs.SetInt("bossSceneGemPickedUpInfo", PlayerPrefs.GetInt("gemPickedUpInfo"));
             gemInfo = PlayerPrefs.GetInt("gemPickedUpInfo");
             changingText.GetComponent<Text>().text = gemInfo.ToString();
         }
@@ -278,13 +279,17 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AudioManager>().Pause("PlayerRun");
         }
 
-        if (GameOverMenuScript.gameIsOver)
+        if (GameOverMenuScript.gameIsOver || PauseMenuScript.gameIsEnding)
         {
             FindObjectOfType<AudioManager>().Stop("PlayerInvulnerable");
             FindObjectOfType<AudioManager>().Stop("GemPickup");
             FindObjectOfType<AudioManager>().Stop("FruitPickup");
-            FindObjectOfType<AudioManager>().Stop("PlayerInvulnerable");
             FindObjectOfType<AudioManager>().Stop("PlayerRun");
+        }
+
+        if (GameOverMenuScript.gameIsOver)
+        {
+            FindObjectOfType<AudioManager>().Stop("PlayerHit");
         }
     }
 

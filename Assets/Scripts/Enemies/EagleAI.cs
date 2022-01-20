@@ -106,7 +106,7 @@ public class EagleAI : MonoBehaviour
             FindObjectOfType<AudioManager>().UnPause("EaglePlayerSpotted");
         }
 
-        if (GameOverMenuScript.gameIsOver || animator.GetBool("Death") == true)
+        if (GameOverMenuScript.gameIsOver || animator.GetBool("Death") == true || PauseMenuScript.gameIsEnding)
         {
             audioSourceChase.Stop();
             audioSourcePatrol.Stop();
@@ -213,7 +213,7 @@ public class EagleAI : MonoBehaviour
             if (eaglePatrolSoundPlayed == false)
             {
                 audioSourcePatrol.loop = true;
-                if (PauseMenuScript.gameIsPaused == false && GameOverMenuScript.gameIsOver == false)
+                if (PauseMenuScript.gameIsPaused == false && GameOverMenuScript.gameIsOver == false && PauseMenuScript.gameIsEnding == false)
                 {
                     audioSourcePatrol.Play();
                     eaglePatrolSoundPlayed = true;
@@ -234,7 +234,7 @@ public class EagleAI : MonoBehaviour
             if (eagleChaseSoundPlayed == false)
             {
                 audioSourceChase.loop = true;
-                if (PauseMenuScript.gameIsPaused == false && GameOverMenuScript.gameIsOver == false)
+                if (PauseMenuScript.gameIsPaused == false && GameOverMenuScript.gameIsOver == false && PauseMenuScript.gameIsEnding == false)
                 {
                     audioSourceChase.Play();
                     eagleChaseSoundPlayed = true;
