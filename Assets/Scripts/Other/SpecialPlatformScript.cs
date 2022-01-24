@@ -53,8 +53,8 @@ public class SpecialPlatformScript : MonoBehaviour
                 playerScript.animator.SetBool("Damaged", true);
                 FindObjectOfType<AudioManager>().Play("PlayerHit");             
 
-                Invoke("GameOverAnimationTrigger", 3f);
-                Invoke("TransitionToBossCutscene", 4f);
+                Invoke("GameOverAnimationTrigger", 2.75f);
+                Invoke("TransitionToBossCutscene", 3.75f);
 
                 flag = true;
             }
@@ -104,13 +104,13 @@ public class SpecialPlatformScript : MonoBehaviour
 
         while (platformTouched == true)
         {
+            Debug.Log(y);
+
             playerAnimator.SetBool("JumpFallBool", true);
 
             gameObject.transform.localPosition = new Vector2(0, platformPos.y - y);
 
-            yield return null;
-
-            y = y + 0.15f;       
+            yield return null;     
         }
     }
 
