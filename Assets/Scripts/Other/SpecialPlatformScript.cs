@@ -36,23 +36,23 @@ public class SpecialPlatformScript : MonoBehaviour
         {    
             if (flag == false)
             {
+                // Music
+                FindObjectOfType<AudioManager>().Stop("GameSceneMusic");
+                FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
+
                 // Shake
                 StartCoroutine(PlatformShake(1.5f, 0.5f));
+
+                // Player model reaction
+                Invoke("PlayerModelOnPlatform", 0.375f);
 
                 // Fall
                 Invoke("DropPlatformAfterTime", 1f);
 
                 // Turned off Controls
                 PauseMenuScript.gameIsEnding = true;
-
+                         
                 // Other
-                FindObjectOfType<AudioManager>().Stop("GameSceneMusic");
-                FindObjectOfType<AudioManager>().Stop("GamePausedMusic");
-
-                CharacterController2D.m_Rigidbody2D.AddForce(new Vector2(0, 550));
-                playerScript.animator.SetBool("Damaged", true);
-                FindObjectOfType<AudioManager>().Play("PlayerHit");             
-
                 Invoke("GameOverAnimationTrigger", 2.75f);
                 Invoke("TransitionToBossCutscene", 3.75f);
 
@@ -104,13 +104,13 @@ public class SpecialPlatformScript : MonoBehaviour
 
         while (platformTouched == true)
         {
-            Debug.Log(y);
-
             playerAnimator.SetBool("JumpFallBool", true);
 
             gameObject.transform.localPosition = new Vector2(0, platformPos.y - y);
 
-            yield return null;     
+            yield return null;
+
+            y = y + 0.5f;
         }
     }
 
@@ -133,5 +133,12 @@ public class SpecialPlatformScript : MonoBehaviour
     public void PlayPlatformFallingSound()
     {
         FindObjectOfType<AudioManager>().Play("PlatformFalling");
+    }
+
+    public void PlayerModelOnPlatform()
+    {
+        CharacterController2D.m_Rigidbody2D.AddForce(new Vector2(0, 550));
+        playerScript.animator.SetBool("Damaged", true);
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
     }
 }

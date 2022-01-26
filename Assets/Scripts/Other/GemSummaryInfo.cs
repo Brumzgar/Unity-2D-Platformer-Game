@@ -9,6 +9,6 @@ public class GemSummaryInfo : MonoBehaviour
     void Start()
     {
         gemSummary = PlayerPrefs.GetInt("gemPickedUpInfo");
-        gemSummaryText.GetComponent<Text>().text = "Gems Collected: " + gemSummary.ToString() + " / 20";
+        gemSummaryText.GetComponent<Text>().text = "Gems Collected: " + gemSummary.ToString() + " / 3";
     }
 }

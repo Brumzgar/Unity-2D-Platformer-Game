@@ -42,7 +42,7 @@ public class FallingPlatformsScript : MonoBehaviour
 
         distanceToBoss = Vector2.Distance(distanceCheckPosition.position, bossPosition.position);
 
-        if (bossDamaged == false && platformTouched == true && distanceToBoss < 4)
+        if (bossDamaged == false && platformTouched == true)
         {
             boss.BossTakeDamage(1);
             bossDamaged = true;
@@ -65,6 +65,7 @@ public class FallingPlatformsScript : MonoBehaviour
             }
         }
     }
+
     public IEnumerator PlatformShake(float duration, float magnitude)
     {
         Vector3 originalPos = gameObject.transform.localPosition;

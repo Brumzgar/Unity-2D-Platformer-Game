@@ -113,14 +113,14 @@ public class BossAI : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("BossHit");
         }
 
-        if (bossCurrentHealth == 0)
+        if (bossCurrentHealth <= 0)
         {
             Invoke("LoadGameOverSceneAfterAnim", 1);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            BossTakeDamage(1);
+            BossTakeDamage(3);
         }
 
         if (path == null)
