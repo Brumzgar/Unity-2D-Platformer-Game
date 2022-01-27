@@ -56,12 +56,15 @@ TagManager:
   - name: Foreground
     uniqueID: 1669637883
     locked: 0
-  - name: Enemies
+  - name: Grid
     uniqueID: 749337167
     locked: 0
-  - name: Player
+  - name: Enemies
     uniqueID: 3917893667
     locked: 0
-  - name: UI
+  - name: Player
     uniqueID: 3672992757
+    locked: 0
+  - name: UI
+    uniqueID: 4044039427
     locked: 0

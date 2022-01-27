@@ -27,9 +27,9 @@ public class MovingMenuCameraScript : MonoBehaviour
             transform.Translate(Vector2.right * cameraSpeed * Time.deltaTime);
             if (sceneName == "MenuScene")
             {
-                if (cameraPosition.transform.position.x >= 58)
+                if (cameraPosition.transform.position.x >= 53.3)
                 {
-                    cameraPosition.transform.localPosition = new Vector3(-54, 0, -10);
+                    cameraPosition.transform.localPosition = new Vector3(-52.35f, 0, -10);
                 }
             }
         }
