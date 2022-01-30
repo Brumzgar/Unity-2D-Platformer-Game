@@ -17,7 +17,7 @@ public class Parallaxing2 : MonoBehaviour
     }
 
 
-    void Update()
+    void LateUpdate()
     {
         float temp = (cam.transform.position.x * (1 - parallaxEffect));
 

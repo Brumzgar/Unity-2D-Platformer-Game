@@ -127,11 +127,6 @@ public class PlayerScript : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            SceneManager.LoadScene("BossCutscene");
-        }
-
         if (Input.GetKeyDown(KeyCode.P))
         {
                 plus1HealthPopUp.SetActive(true);

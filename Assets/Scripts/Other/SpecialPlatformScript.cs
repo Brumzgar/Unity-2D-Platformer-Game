@@ -12,6 +12,7 @@ public class SpecialPlatformScript : MonoBehaviour
     public Transform playerTransform;
     public Animator gameOverAnimations;
     public Animator playerAnimator;
+    public GameObject playerExclamationMark;
     bool flag;
     public PlayerScript playerScript;
 
@@ -140,5 +141,12 @@ public class SpecialPlatformScript : MonoBehaviour
         CharacterController2D.m_Rigidbody2D.AddForce(new Vector2(0, 550));
         playerScript.animator.SetBool("Damaged", true);
         FindObjectOfType<AudioManager>().Play("PlayerHit");
+        playerExclamationMark.gameObject.SetActive(true);
+        Invoke("TurnOffExclamationMark", 0.5f);
+    }
+
+    public void TurnOffExclamationMark()
+    {
+        playerExclamationMark.gameObject.SetActive(false);
     }
 }
