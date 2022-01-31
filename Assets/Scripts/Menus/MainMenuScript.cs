@@ -11,6 +11,12 @@ public class MainMenuScript : MonoBehaviour
         gameIsStarting = false;
     }
 
+    public void OnEnable()
+    {
+        Debug.Log("----------------MainMenuScript OnEnable--------------------");
+        Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
+    }
+
     public void OnDisable()
     {
         gameIsStarting = false;

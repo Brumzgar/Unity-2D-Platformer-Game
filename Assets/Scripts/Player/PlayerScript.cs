@@ -58,6 +58,23 @@ public class PlayerScript : MonoBehaviour {
         // Special changes for specific scenes
         sceneName = SceneManager.GetActiveScene().name;
 
+        // Tutorials
+        if (sceneName == "GameScene")
+        {
+            /*if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0)
+            {
+                PlayerPrefs.SetInt("MenuTutorialsFlag", 1);*/
+            Debug.Log("----------------PlayerScript OnEnable > BEFORE--------------------");
+            Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
+
+            if (PlayerPrefs.GetString("showTutorials") != "OFF")
+                    PlayerPrefs.SetString("showTutorials", "ON");
+
+            Debug.Log("----------------PlayerScript OnEnable > AFTER--------------------");
+            Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
+            //}
+        }
+
         // Gems amount saved
         if (sceneName == "GameScene")
         {
