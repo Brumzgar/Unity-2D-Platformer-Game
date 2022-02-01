@@ -7,7 +7,7 @@ public class MenuSceneSoundScript : MonoBehaviour
 
     public void OnEnable()
     {
-        Invoke("turnOnInputsAfterTime", 1);
+        Invoke("TurnOnInputsAfterTime", 1);
         Invoke("PlayMusicAfterTime", 0.25f);
     }
 
@@ -22,7 +22,7 @@ public class MenuSceneSoundScript : MonoBehaviour
         }
     }
 
-    public void turnOnInputsAfterTime()
+    public void TurnOnInputsAfterTime()
     {
         inputFlag = true;
     }

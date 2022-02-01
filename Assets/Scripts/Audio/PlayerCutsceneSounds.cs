@@ -22,5 +22,4 @@ public class PlayerCutsceneSounds : MonoBehaviour
         yield return new WaitForSeconds(1);
         FindObjectOfType<AudioManager>().Play("BossLevelStart");
     }
-
 }

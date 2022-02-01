@@ -8,13 +8,12 @@ public class MainMenuScript : MonoBehaviour
 
     public void Start()
     {
+        if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0)
+        {
+            PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
+            PlayerPrefs.SetString("showTutorials", "ON");
+        }
         gameIsStarting = false;
-    }
-
-    public void OnEnable()
-    {
-        Debug.Log("----------------MainMenuScript OnEnable--------------------");
-        Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
     }
 
     public void OnDisable()

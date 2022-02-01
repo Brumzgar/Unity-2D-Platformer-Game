@@ -13,7 +13,7 @@ public class StartingScreenInputAnyKey : MonoBehaviour
     {
         inputFlag = false;
         enterPressed = false;
-        Invoke("turnOnInputsAfterTime", 1);
+        Invoke("TurnOnInputsAfterTime", 1);
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class StartingScreenInputAnyKey : MonoBehaviour
         }
     }
 
-    public void turnOnInputsAfterTime()
+    public void TurnOnInputsAfterTime()
     {
         inputFlag = true;
     }

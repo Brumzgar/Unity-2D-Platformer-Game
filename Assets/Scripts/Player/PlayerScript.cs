@@ -61,18 +61,8 @@ public class PlayerScript : MonoBehaviour {
         // Tutorials
         if (sceneName == "GameScene")
         {
-            /*if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0)
-            {
-                PlayerPrefs.SetInt("MenuTutorialsFlag", 1);*/
-            Debug.Log("----------------PlayerScript OnEnable > BEFORE--------------------");
-            Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
-
             if (PlayerPrefs.GetString("showTutorials") != "OFF")
                     PlayerPrefs.SetString("showTutorials", "ON");
-
-            Debug.Log("----------------PlayerScript OnEnable > AFTER--------------------");
-            Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
-            //}
         }
 
         // Gems amount saved
@@ -82,7 +72,6 @@ public class PlayerScript : MonoBehaviour {
         } 
         else
         {
-            //PlayerPrefs.SetInt("bossSceneGemPickedUpInfo", PlayerPrefs.GetInt("gemPickedUpInfo"));
             gemInfo = PlayerPrefs.GetInt("gemPickedUpInfo");
             changingText.GetComponent<Text>().text = gemInfo.ToString();
         }
@@ -424,7 +413,7 @@ public class PlayerScript : MonoBehaviour {
             FindObjectOfType<AudioManager>().Play("PlayerInvulnerable");
     }
 
-    // Other functions
+    // Other
     IEnumerator ConstantShake (float magnitude)
     {
         Vector3 originalPos = healthBar.transform.localPosition;

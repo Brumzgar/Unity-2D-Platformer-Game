@@ -13,18 +13,11 @@ public class ShowOptionsMenuValues : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("----------------ShowOptionsMenuValues OnEnable > BEFORE--------------------");
-        Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
-
         if (sceneName == "GameScene" || sceneName == "BossScene")
         {
             StartCoroutine(ShowOptionsMenuValuesOnPausedGame());
         }
-
         SetPlayerPrefsShowTutorialOnEnableAndStart();
-
-        Debug.Log("----------------ShowOptionsMenuValues OnEnable > AFTER--------------------");
-        Debug.Log(PlayerPrefs.GetString("showTutorials") + " = showTutorials");
     }
 
     private void Start()
@@ -91,13 +84,6 @@ public class ShowOptionsMenuValues : MonoBehaviour
 
     public void SetPlayerPrefsShowTutorialOnEnableAndStart()
     {
-        /*if (PlayerPrefs.GetInt("MenuTutorialsFlag") == 0)
-        {
-            PlayerPrefs.SetInt("MenuTutorialsFlag", 1);
-            tutorialSlider.value = tutorialSlider.maxValue;
-        }
-        else
-        {*/
             if (PlayerPrefs.GetString("showTutorials") == "ON")
             {
                 tutorialSlider.value = tutorialSlider.maxValue;
@@ -106,6 +92,5 @@ public class ShowOptionsMenuValues : MonoBehaviour
             {
                 tutorialSlider.value = tutorialSlider.minValue;
             }
-        //}
     }
 }
