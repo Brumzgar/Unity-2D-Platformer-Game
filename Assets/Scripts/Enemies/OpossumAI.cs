@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OpossumAI : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class OpossumAI : MonoBehaviour
     bool opossSoundPlayed;
     public AudioSource opossAudioSource;
     float distanceToPlayer;
+
+    // Scene
+    string sceneName;
+
+    public void Start()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+    }
 
     void FixedUpdate()
     {
@@ -93,8 +102,11 @@ public class OpossumAI : MonoBehaviour
             {
                 if (transform.position.x < player.position.x)
                 {
-                    transform.eulerAngles = new Vector3(0, 0, 0);
-                    movingLeft = true;
+                    if (sceneName != "BossScene")
+                    {
+                        transform.eulerAngles = new Vector3(0, 0, 0);
+                        movingLeft = true;
+                    }
                 }    
             }
 

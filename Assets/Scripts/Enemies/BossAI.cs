@@ -71,6 +71,7 @@ public class BossAI : MonoBehaviour
     {
         // Ignore Platforms
         Physics2D.IgnoreLayerCollision(7, 10);
+        Physics2D.IgnoreLayerCollision(11, 10);
     }
 
     public void BossTakeDamage(int bossDamage)

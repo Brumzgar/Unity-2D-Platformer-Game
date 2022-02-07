@@ -122,27 +122,11 @@ public class PlayerScript : MonoBehaviour {
                 StartCoroutine(ConstantShake(1.40f));
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
+        /*if (Input.GetKeyDown(KeyCode.R))
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-                plus1HealthPopUp.SetActive(true);
-                if (currentHealth < 3)
-                {
-                    currentHealth++;
-                    healthBar.SetHealth(currentHealth);
-                }
-                Invoke("TurnOffPlus1HealthPopUpAfterTime", 2.25f);
-        }
+        }*/
 
         // Movement
         animator.SetFloat("yVelocity", controller.yVelocity); // Float used to check if player is jumping or falling
