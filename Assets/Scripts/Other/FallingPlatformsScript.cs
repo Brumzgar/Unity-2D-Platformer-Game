@@ -8,7 +8,6 @@ public class FallingPlatformsScript : MonoBehaviour
     public BossAI boss;
     public Transform bossPosition;
     public Transform distanceCheckPosition;
-    public float distanceToBoss;
     bool platformTouchedSoundFlag;
     bool platformFallingSoundFlag;
     bool flag;
@@ -40,9 +39,7 @@ public class FallingPlatformsScript : MonoBehaviour
             FindObjectOfType<AudioManager>().Stop("PlatformTouched");
         }
 
-        distanceToBoss = Vector2.Distance(distanceCheckPosition.position, bossPosition.position);
-
-        if (bossDamaged == false && platformTouched == true && distanceToBoss < 4)
+        if (bossDamaged == false && platformTouched == true)
         {
             boss.BossTakeDamage(1);
             bossDamaged = true;
@@ -97,7 +94,7 @@ public class FallingPlatformsScript : MonoBehaviour
 
     public IEnumerator DropPlatform()
     {
-        float y = 0.25f;
+        float y = 0.20f;
 
         Vector2 platformPos = gameObject.transform.localPosition;
 
@@ -115,7 +112,7 @@ public class FallingPlatformsScript : MonoBehaviour
             yield return null;
 
             if (PauseMenuScript.gameIsPaused == false)
-                y = y + 0.025f;
+                y = y + 0.020f;
         }
     }
 

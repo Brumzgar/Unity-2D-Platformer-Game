@@ -74,6 +74,7 @@ public class PlayerScript : MonoBehaviour {
         {
             gemInfo = PlayerPrefs.GetInt("gemPickedUpInfo");
             changingText.GetComponent<Text>().text = gemInfo.ToString();
+            gemAnimator.SetTrigger("GemsBarFade");
         }
 
         // Health System

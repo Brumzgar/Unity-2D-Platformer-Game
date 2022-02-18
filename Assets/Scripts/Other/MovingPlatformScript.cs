@@ -11,7 +11,6 @@ public class MovingPlatformScript : MonoBehaviour
         Vector3 originalPosition = transform.localPosition;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (transform.position.x + originalPosition.x > 4f)
